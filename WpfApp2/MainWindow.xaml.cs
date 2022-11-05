@@ -112,7 +112,7 @@ namespace WpfApp2
 
         private void ListView_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
-
+            //test
         }
     }
 }

@@ -1,9 +1,9 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
-# Visual Studio Version 16
-VisualStudioVersion = 16.0.31424.327
+# Visual Studio Version 17
+VisualStudioVersion = 17.3.32929.385
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WpfApp2", "WpfApp2\WpfApp2.csproj", "{A87B1C5C-BC4C-401E-B97E-F7797BF748E0}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "DateiUnbenenn", "WpfApp2\DateiUnbenenn.csproj", "{A87B1C5C-BC4C-401E-B97E-F7797BF748E0}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

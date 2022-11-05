@@ -1,0 +1,36 @@
+﻿<Window x:Class="WpfApp2.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:WpfApp2"
+        mc:Ignorable="d"
+        Title="FILE UMB" Height="748" Width="1453">
+    <Grid Margin="10">
+        <Button Margin="154,462,1104,208" Content="File open" Click="Button_Click" Visibility="Hidden"/>
+
+        <TextBox Name="tb1" HorizontalAlignment="Left" Margin="147,521,0,85" Text="TextBox" Width="160" Visibility="Hidden" />
+
+        <Button Margin="1113,613,77,43" Content="Fertig" Click="btnClose" ></Button>
+
+        <Button Content="Directory open" HorizontalAlignment="Left" Margin="10,8,0,0" VerticalAlignment="Top" Height="30" Width="158" Click="btnOpenDiretory"/>
+
+        <ListBox x:Name="lbFilesInDirectory" HorizontalAlignment="Left" Height="165" Margin="35,52,0,0" VerticalAlignment="Top" Width="308" d:ItemsSource="{d:SampleData ItemCount=5}"/>
+        <ListBox HorizontalAlignment="Left" Height="165" Margin="405,52,0,0" Name="lbFilesNewNames"  VerticalAlignment="Top" Width="305" SelectionChanged="ListBox_SelectionChanged_1" IsManipulationEnabled="True" Background="#FF44B335" d:ItemsSource="{d:SampleData ItemCount=5}"/>
+        <TextBox x:Name="tbName" HorizontalAlignment="Left" Height="35" Margin="405,244,0,0" Text="neue Benen" TextWrapping="Wrap" VerticalAlignment="Top" Width="305" TextChanged="TextBox_TextChanged"/>
+        <Canvas HorizontalAlignment="Left" Height="431" Margin="865,52,0,0" VerticalAlignment="Top" Width="526">
+            <Label Content="Anzahl Buchstaben (die am Anfang/Ende zum beibehalten)" Height="82" Canvas.Left="10" Canvas.Top="10" Width="326" HorizontalAlignment="Left" VerticalAlignment="Center" ForceCursor="True" RenderTransformOrigin="0.349,0.289"/>
+            <Label Content="Dateityp"  Canvas.Left="63" Canvas.Top="143" Height="25" Width="58" HorizontalAlignment="Left" VerticalAlignment="Center"></Label>
+            <Label Content="Dateiname" Canvas.Left="221" Canvas.Top="143" HorizontalAlignment="Left" VerticalAlignment="Center"></Label>
+        </Canvas>
+        <Rectangle HorizontalAlignment="Left" Height="421" Margin="875,62,0,0" Stroke="Black" VerticalAlignment="Top" Width="481"/>
+        <TextBox HorizontalAlignment="Left" Height="18" Margin="988,115,0,0" TextWrapping="Wrap" Text="# Buchstaben" VerticalAlignment="Top" Width="60"/>
+        <RadioButton Content="Am Anfang" HorizontalAlignment="Left" Height="18" Margin="1063,115,0,0" VerticalAlignment="Top" Width="100"/>
+        <RadioButton Content="Am Ende" HorizontalAlignment="Left" Height="18" Margin="1155,115,0,0" VerticalAlignment="Top" Width="100"/>
+        <TextBox HorizontalAlignment="Left" Height="19" Margin="988,198,0,0" TextWrapping="Wrap" Text="TextBox" VerticalAlignment="Top" Width="60"/>
+        <TextBox HorizontalAlignment="Left" Height="19" Margin="1155,198,0,0" TextWrapping="Wrap" Text="TextBox" VerticalAlignment="Top" Width="88"/>
+
+
+
+    </Grid>
+</Window>

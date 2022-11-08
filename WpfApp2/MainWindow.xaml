@@ -29,8 +29,8 @@
 
         <Rectangle HorizontalAlignment="Left" Height="200" Margin="875,0,0,450" Stroke="Black" VerticalAlignment="Bottom" Width="481"/>
         <TextBox x:Name="tbAnzBuchst" HorizontalAlignment="Left" Height="18" Margin="898,116,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="60" TextChanged="TextBox_TextChanged_1"/>
-        <RadioButton GroupName="Group1" Content="Am Anfang" HorizontalAlignment="Left" Height="18" Margin="974,116,0,0" VerticalAlignment="Top" Width="100"/>
-        <RadioButton GroupName="Group1" Content="Am Ende" HorizontalAlignment="Left" Height="18" Margin="1066,116,0,0" VerticalAlignment="Top" Width="100" Checked="RadioButton_Checked" IsChecked="True"/>
+        <RadioButton GroupName="Group1" Content="Am Anfang" HorizontalAlignment="Left" Height="18" Margin="974,116,0,0" VerticalAlignment="Top" Width="100" IsChecked="True"/>
+        <RadioButton GroupName="Group1" Content="Am Ende" HorizontalAlignment="Left" Height="18" Margin="1066,116,0,0" VerticalAlignment="Top" Width="100" Checked="RadioButton_Checked" IsChecked="False"/>
         <TextBox HorizontalAlignment="Left" Height="19" Margin="974,170,0,0" TextWrapping="Wrap" Text="TextBox" VerticalAlignment="Top" Width="60"/>
         <TextBox HorizontalAlignment="Left" Height="19" Margin="1141,170,0,0" TextWrapping="Wrap" Text="TextBox" VerticalAlignment="Top" Width="170"/>
 
@@ -50,6 +50,7 @@
         </Canvas>
         <Rectangle HorizontalAlignment="Left" Height="228" Margin="876,0,0,196" Stroke="Black" VerticalAlignment="Bottom" Width="480"/>
         <Button Content="Änderungen Vorschau" HorizontalAlignment="Left" Height="45" Margin="878,547,0,0" VerticalAlignment="Top" Width="156" Click="aenderVorschau"/>
-        <Label Content="Vorschau" HorizontalAlignment="Left" Margin="21,62,0,0" VerticalAlignment="Top" Width="154" FontWeight="Normal"/>
+        <Label Content="Vorschau neue Benennungen" HorizontalAlignment="Left" Margin="395,62,0,0" VerticalAlignment="Top" Width="154" FontWeight="Normal"/>
+        <Label Content="Alte Benennungen" HorizontalAlignment="Left" Margin="21,62,0,0" VerticalAlignment="Top" Width="154" FontWeight="Normal"/>
     </Grid>
 </Window>

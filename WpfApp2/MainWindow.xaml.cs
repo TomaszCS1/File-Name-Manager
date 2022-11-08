@@ -15,6 +15,7 @@ using System.Windows.Navigation;
 using System.Windows.Shapes;
 using System.IO;
 using System.Collections;
+//using System.Windows.Forms;
 
 
 
@@ -28,7 +29,9 @@ namespace WpfApp2
 
         string filePath;
         string directPath;
-        string anzBuchstaben;
+        string[] files;
+        public string anzBuchstabenStr;
+        public int anzBuchstaben;
 
         public MainWindow()
         {
@@ -39,17 +42,17 @@ namespace WpfApp2
         {
 
             OpenFileDialog openFileDialog = new OpenFileDialog();
-           
+            
             if (openFileDialog.ShowDialog() == true)
             {
                 //Get the path of specified file
                 filePath = openFileDialog.FileName;
                 tb1.Text = filePath;
-                                             
+
             }
 
         }
-              
+
 
         private void btnClose(object sender, RoutedEventArgs e)
         {
@@ -58,29 +61,29 @@ namespace WpfApp2
 
         private void btnOpenDiretory(object sender, RoutedEventArgs e)
         {
-            
-            
+
+
             OpenFileDialog openFileDialogDir = new OpenFileDialog();
-            if (openFileDialogDir.ShowDialog()==true)
+            if (openFileDialogDir.ShowDialog() == true)
             {
                 filePath = openFileDialogDir.FileName;
-               directPath = System.IO.Path.GetDirectoryName(filePath);
+                directPath = System.IO.Path.GetDirectoryName(filePath);
 
 
 
-                string[] files = Directory.GetFiles(directPath);
+                files = Directory.GetFiles(directPath);
 
 
                 lbFilesInDirectory.Items.Clear();
                 for (int i = 0; i < files.Length; i++)
                 {
-                    lbFilesInDirectory.Items.Add(i+1 + ". " + System.IO.Path.GetFileName(files[i]));
-                    lbFilesNewNames.Items.Add(i + 1 + ". " + System.IO.Path.GetFileName(files[i]));
+                    lbFilesInDirectory.Items.Add(i + 1 + ". " + System.IO.Path.GetFileName(files[i]));
+
                 }
             }
         }
 
-       
+
 
         private void Button_Click_1(object sender, RoutedEventArgs e)
         {
@@ -89,11 +92,13 @@ namespace WpfApp2
 
         }
 
-      
+
         private void ListBox_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
-            string copySelected = lbFilesInDirectory.SelectedItem.ToString();
-            tbName.Text = copySelected;
+
+
+            // string copySelected = lbFilesInDirectory.SelectedItem.ToString();
+            //tbName.Text = copySelected;
         }
 
         private void ListBox_SelectionChanged_1(object sender, SelectionChangedEventArgs e)
@@ -103,7 +108,7 @@ namespace WpfApp2
 
         private void TextBox_TextChanged(object sender, TextChangedEventArgs e)
         {
-            lbFilesNewNames.Items.Add(tbName.Text);
+            //lbFilesNewNames.Items.Add(tbName.Text);
             //int c = lbFilesNewNames.Items.Count;
             //Console.WriteLine("NAME TEMP= "+c);     
 
@@ -122,14 +127,24 @@ namespace WpfApp2
         }
 
         private void TextBox_TextChanged_1(object sender, TextChangedEventArgs e)
-        {         
-                anzBuchstaben = tbAnzBuchst.Text;
-                Console.WriteLine( anzBuchstaben);
+        {
+            anzBuchstabenStr = tbAnzBuchst.Text;
+            anzBuchstaben = Int32.Parse(anzBuchstabenStr);
+            Console.WriteLine(anzBuchstaben);
         }
 
         private void aenderVorschau(object sender, RoutedEventArgs e)
         {
+            lbFilesNewNames.Items.Clear();
 
+            for (int i = 0; i < files.Length; i++)
+            {
+                string fileName = System.IO.Path.GetFileName(files[i]);
+                string newFilename = fileName.Remove(0, anzBuchstaben);
+
+                lbFilesNewNames.Items.Add(i + 1 + ". " + newFilename);
+            }
         }
+
     }
 }

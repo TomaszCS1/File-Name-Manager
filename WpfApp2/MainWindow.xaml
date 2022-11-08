@@ -11,26 +11,38 @@
 
         <TextBox Name="tb1" HorizontalAlignment="Left" Margin="147,521,0,85" Text="TextBox" Width="160" Visibility="Hidden" />
 
-        <Button Margin="1113,613,77,43" Content="Fertig" Click="btnClose" ></Button>
+        <Button Height="50" Margin="1200,610,77,0" Content="Fertig" Click="btnClose" VerticalAlignment="Top" ></Button>
 
         <Button Content="Directory open" HorizontalAlignment="Left" Margin="10,8,0,0" VerticalAlignment="Top" Height="30" Width="158" Click="btnOpenDiretory"/>
 
         <ListBox x:Name="lbFilesInDirectory" HorizontalAlignment="Left" Height="165" Margin="35,52,0,0" VerticalAlignment="Top" Width="308" d:ItemsSource="{d:SampleData ItemCount=5}"/>
         <ListBox HorizontalAlignment="Left" Height="165" Margin="405,52,0,0" Name="lbFilesNewNames"  VerticalAlignment="Top" Width="305" SelectionChanged="ListBox_SelectionChanged_1" IsManipulationEnabled="True" Background="#FF44B335" d:ItemsSource="{d:SampleData ItemCount=5}"/>
         <TextBox x:Name="tbName" HorizontalAlignment="Left" Height="35" Margin="405,244,0,0" Text="neue Benen" TextWrapping="Wrap" VerticalAlignment="Top" Width="305" TextChanged="TextBox_TextChanged"/>
-        <Canvas HorizontalAlignment="Left" Height="431" Margin="865,52,0,0" VerticalAlignment="Top" Width="526">
-            <Label Content="Anzahl Buchstaben (die am Anfang/Ende zum beibehalten)" Height="82" Canvas.Left="10" Canvas.Top="10" Width="326" HorizontalAlignment="Left" VerticalAlignment="Center" ForceCursor="True" RenderTransformOrigin="0.349,0.289"/>
+        <Canvas HorizontalAlignment="Left" Height="227" Margin="865,52,0,0" VerticalAlignment="Top" Width="526">
+            <Label Content="Anzahl Buchstaben (die am Anfang/Ende zum beibehalten)" Height="82" Canvas.Left="30" Canvas.Top="32" Width="326" ForceCursor="True" RenderTransformOrigin="0.349,0.289"/>
             <Label Content="Dateityp"  Canvas.Left="63" Canvas.Top="143" Height="25" Width="58" HorizontalAlignment="Left" VerticalAlignment="Center"></Label>
             <Label Content="Dateiname" Canvas.Left="221" Canvas.Top="143" HorizontalAlignment="Left" VerticalAlignment="Center"></Label>
         </Canvas>
-        <Rectangle HorizontalAlignment="Left" Height="421" Margin="875,62,0,0" Stroke="Black" VerticalAlignment="Top" Width="481"/>
-        <TextBox HorizontalAlignment="Left" Height="18" Margin="988,115,0,0" TextWrapping="Wrap" Text="# Buchstaben" VerticalAlignment="Top" Width="60"/>
-        <RadioButton Content="Am Anfang" HorizontalAlignment="Left" Height="18" Margin="1063,115,0,0" VerticalAlignment="Top" Width="100"/>
-        <RadioButton Content="Am Ende" HorizontalAlignment="Left" Height="18" Margin="1155,115,0,0" VerticalAlignment="Top" Width="100"/>
+        <Rectangle HorizontalAlignment="Left" Height="200" Margin="875,0,0,450" Stroke="Black" VerticalAlignment="Bottom" Width="481"/>
+        <TextBox HorizontalAlignment="Left" Height="18" Margin="898,116,0,0" TextWrapping="Wrap" Text="# Buchstaben" VerticalAlignment="Top" Width="60"/>
+        <RadioButton Content="Am Anfang" HorizontalAlignment="Left" Height="18" Margin="974,116,0,0" VerticalAlignment="Top" Width="100"/>
+        <RadioButton Content="Am Ende" HorizontalAlignment="Left" Height="18" Margin="1066,116,0,0" VerticalAlignment="Top" Width="100"/>
         <TextBox HorizontalAlignment="Left" Height="19" Margin="988,198,0,0" TextWrapping="Wrap" Text="TextBox" VerticalAlignment="Top" Width="60"/>
-        <TextBox HorizontalAlignment="Left" Height="19" Margin="1155,198,0,0" TextWrapping="Wrap" Text="TextBox" VerticalAlignment="Top" Width="88"/>
+        <TextBox HorizontalAlignment="Left" Height="19" Margin="1155,198,0,0" TextWrapping="Wrap" Text="TextBox" VerticalAlignment="Top" Width="170"/>
 
-
+        <Canvas x:Name="textAendern" Margin="865,279,42,158" Cursor="Arrow">
+            <Border Height="195" Width="378" Canvas.Left="47" >
+            </Border>
+            <Label Content="Textteile ändern"></Label>
+            <Label Content="alter Text 1" Canvas.Left="65" Canvas.Top="34"></Label>
+            <Label Content="neuer Text 1" Canvas.Left="250" Canvas.Top="34"></Label>
+            <TextBox Height="18" Width="150" Canvas.Left="65" Canvas.Top="65"></TextBox>
+            <TextBox Height="18" Width="150" Canvas.Left="250" Canvas.Top="65"  ></TextBox>
+            <Label Content="alter Text 2" Canvas.Left="65" Canvas.Top="107"/>
+            <Label Content="neuer Text 2" Canvas.Left="250" Canvas.Top="107"/>
+            <TextBox Height="18" Width="150" Canvas.Left="65" Canvas.Top="138"/>
+            <TextBox Height="18" Width="150" Canvas.Left="250" Canvas.Top="138"  />
+        </Canvas>
 
     </Grid>
 </Window>

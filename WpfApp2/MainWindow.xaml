@@ -15,24 +15,28 @@
 
         <Button Content="Directory open" HorizontalAlignment="Left" Margin="10,8,0,0" VerticalAlignment="Top" Height="30" Width="158" Click="btnOpenDiretory"/>
 
-        <ListBox x:Name="lbFilesInDirectory" HorizontalAlignment="Left" Height="165" Margin="35,52,0,0" VerticalAlignment="Top" Width="308" d:ItemsSource="{d:SampleData ItemCount=5}"/>
-        <ListBox HorizontalAlignment="Left" Height="165" Margin="405,52,0,0" Name="lbFilesNewNames"  VerticalAlignment="Top" Width="305" SelectionChanged="ListBox_SelectionChanged_1" IsManipulationEnabled="True" Background="#FF44B335" d:ItemsSource="{d:SampleData ItemCount=5}"/>
-        <TextBox x:Name="tbName" HorizontalAlignment="Left" Height="35" Margin="405,244,0,0" Text="neue Benen" TextWrapping="Wrap" VerticalAlignment="Top" Width="305" TextChanged="TextBox_TextChanged"/>
+        <ListBox x:Name="lbFilesInDirectory" HorizontalAlignment="Left" Height="165" Margin="21,97,0,0" VerticalAlignment="Top" Width="308" d:ItemsSource="{d:SampleData ItemCount=5}"/>
+        <ListBox HorizontalAlignment="Left" Height="165" Margin="395,99,0,0" Name="lbFilesNewNames"  VerticalAlignment="Top" Width="305" SelectionChanged="ListBox_SelectionChanged_1" IsManipulationEnabled="True" Background="#FF44B335" d:ItemsSource="{d:SampleData ItemCount=5}"/>
+        <TextBox x:Name="tbName" HorizontalAlignment="Left" Height="35" Margin="395,288,0,0" Text="neue Benen" TextWrapping="Wrap" VerticalAlignment="Top" Width="305" TextChanged="TextBox_TextChanged"/>
+
         <Canvas HorizontalAlignment="Left" Height="227" Margin="865,52,0,0" VerticalAlignment="Top" Width="526">
             <Label Content="Anzahl Buchstaben (die am Anfang/Ende zum beibehalten)" Height="82" Canvas.Left="30" Canvas.Top="32" Width="326" ForceCursor="True" RenderTransformOrigin="0.349,0.289"/>
             <Label Content="Dateityp"  Canvas.Left="45" Canvas.Top="114" Height="24" Width="58"/>
             <Label Content="Dateiname" Canvas.Left="203" Canvas.Top="114"/>
+            <Label Content=" Deteinamen kurzen" Canvas.Left="30" Canvas.Top="5" FontWeight="Bold"></Label>
         </Canvas>
+
+
         <Rectangle HorizontalAlignment="Left" Height="200" Margin="875,0,0,450" Stroke="Black" VerticalAlignment="Bottom" Width="481"/>
-        <TextBox x:Name="anzBuchst"  HorizontalAlignment="Left" Height="18" Margin="898,116,0,0" TextWrapping="Wrap" Text="# Buchstaben" VerticalAlignment="Top" Width="60" TextChanged="TextBox_TextChanged_1"/>
+        <TextBox x:Name="tbAnzBuchst" HorizontalAlignment="Left" Height="18" Margin="898,116,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="60" TextChanged="TextBox_TextChanged_1"/>
         <RadioButton GroupName="Group1" Content="Am Anfang" HorizontalAlignment="Left" Height="18" Margin="974,116,0,0" VerticalAlignment="Top" Width="100"/>
         <RadioButton GroupName="Group1" Content="Am Ende" HorizontalAlignment="Left" Height="18" Margin="1066,116,0,0" VerticalAlignment="Top" Width="100" Checked="RadioButton_Checked" IsChecked="True"/>
         <TextBox HorizontalAlignment="Left" Height="19" Margin="974,170,0,0" TextWrapping="Wrap" Text="TextBox" VerticalAlignment="Top" Width="60"/>
         <TextBox HorizontalAlignment="Left" Height="19" Margin="1141,170,0,0" TextWrapping="Wrap" Text="TextBox" VerticalAlignment="Top" Width="170"/>
 
-        <Canvas x:Name="textAendern" Margin="865,300,42,208" Cursor="Arrow">
+        <Canvas x:Name="textAendern" Margin="865,280,50,190" Cursor="Arrow">
 
-            <Label Content="Textteile ändern" Canvas.Left="39" Canvas.Top="8"></Label>
+            <Label Content="Textteile ändern" Canvas.Left="30" Canvas.Top="5" FontWeight="Bold"></Label>
             <Label Content="alter Text 1" Canvas.Left="65" Canvas.Top="34"></Label>
             <Label Content="neuer Text 1" Canvas.Left="250" Canvas.Top="34"></Label>
             <TextBox Height="18" Width="150" Canvas.Left="65" Canvas.Top="65"></TextBox>
@@ -44,7 +48,8 @@
 
 
         </Canvas>
-        <Rectangle HorizontalAlignment="Left" Height="200" Margin="876,0,0,224" Stroke="Black" VerticalAlignment="Bottom" Width="480"/>
-        <Button Content="Änderungen Vorschau" HorizontalAlignment="Left" Height="45" Margin="878,521,0,0" VerticalAlignment="Top" Width="156" Click="Button_Click_2"/>
+        <Rectangle HorizontalAlignment="Left" Height="228" Margin="876,0,0,196" Stroke="Black" VerticalAlignment="Bottom" Width="480"/>
+        <Button Content="Änderungen Vorschau" HorizontalAlignment="Left" Height="45" Margin="878,547,0,0" VerticalAlignment="Top" Width="156" Click="aenderVorschau"/>
+        <Label Content="Vorschau" HorizontalAlignment="Left" Margin="21,62,0,0" VerticalAlignment="Top" Width="154" FontWeight="Normal"/>
     </Grid>
 </Window>

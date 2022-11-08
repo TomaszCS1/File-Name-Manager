@@ -28,6 +28,7 @@ namespace WpfApp2
 
         string filePath;
         string directPath;
+        string anzBuchstaben;
 
         public MainWindow()
         {
@@ -121,11 +122,12 @@ namespace WpfApp2
         }
 
         private void TextBox_TextChanged_1(object sender, TextChangedEventArgs e)
-        {
-
+        {         
+                anzBuchstaben = tbAnzBuchst.Text;
+                Console.WriteLine( anzBuchstaben);
         }
 
-        private void Button_Click_2(object sender, RoutedEventArgs e)
+        private void aenderVorschau(object sender, RoutedEventArgs e)
         {
 
         }

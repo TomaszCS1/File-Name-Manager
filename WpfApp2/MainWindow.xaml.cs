@@ -130,6 +130,8 @@ namespace WpfApp2
 
         private void aenderVorschau(object sender, RoutedEventArgs e)
         {
+
+
             if (rbAmAnfang.IsChecked == true && tbAnzBuchst.Text.Length != 0)       //AM ANFANG KURZEN
             {
                 lbFilesNewNames.Items.Clear();
@@ -137,10 +139,22 @@ namespace WpfApp2
                 for (int i = 0; i < files.Length; i++)
                 {
                     string fileName = System.IO.Path.GetFileName(files[i]);
-                    string newFilename = fileName.Remove(0, anzBuchstaben);
+                    int laengeBenenn = fileName.IndexOf(".");
 
-                    lbFilesNewNames.Items.Add(i + 1 + ". " + newFilename);
+                    if (laengeBenenn >= anzBuchstaben)
+                    {
+                        int endeString = laengeBenenn - anzBuchstaben;
+                        string newFilename = fileName.Remove(0, anzBuchstaben);
+                        lbFilesNewNames.Items.Add(i + 1 + ". " + newFilename);
+                    }
+                    else
+                    {
+                        string newFilename = fileName;
+                        lbFilesNewNames.Items.Add(i + 1 + ". " + newFilename);
+                    }
                 }
+
+
             } else if (rbAmEnde.IsChecked == true && tbAnzBuchst.Text.Length != 0)      //AM ENDE KURZEN
             {
                 lbFilesNewNames.Items.Clear();
@@ -159,8 +173,7 @@ namespace WpfApp2
                         string newFilename = fileName;
                         lbFilesNewNames.Items.Add(i + 1 + ". " + newFilename);
                     }
-                    
-                 
+                                    
                 }
 
             }

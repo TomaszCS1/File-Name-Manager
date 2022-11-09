@@ -121,19 +121,6 @@ namespace WpfApp2
             //test
         }
 
-        private void RadioButton_Checked(object sender, RoutedEventArgs e)
-        {
-            lbFilesNewNames.Items.Clear();
-
-            for (int i = 0; i < files.Length; i++)
-            {
-                string fileName = System.IO.Path.GetFileName(files[i]);
-                string newFilename = fileName.Remove((files[i].IndexOf(".")-anzBuchstaben), anzBuchstaben);
-
-                lbFilesNewNames.Items.Add(i + 1 + ". " + newFilename);
-            }
-        }
-
         private void TextBox_TextChanged_1(object sender, TextChangedEventArgs e)
         {
             anzBuchstabenStr = tbAnzBuchst.Text;
@@ -143,7 +130,7 @@ namespace WpfApp2
 
         private void aenderVorschau(object sender, RoutedEventArgs e)
         {
-            if (rbAmAnfang.IsChecked == true && tbAnzBuchst.Text.Length != 0)
+            if (rbAmAnfang.IsChecked == true && tbAnzBuchst.Text.Length != 0)       //AM ANFANG KURZEN
             {
                 lbFilesNewNames.Items.Clear();
 
@@ -154,10 +141,37 @@ namespace WpfApp2
 
                     lbFilesNewNames.Items.Add(i + 1 + ". " + newFilename);
                 }
+            } else if (rbAmEnde.IsChecked == true && tbAnzBuchst.Text.Length != 0)      //AM ENDE KURZEN
+            {
+                lbFilesNewNames.Items.Clear();
+
+                for (int i = 0; i < files.Length; i++)
+                {
+                    string fileName = System.IO.Path.GetFileName(files[i]);
+                    int laengeBenenn = fileName.IndexOf(".");
+                    if (laengeBenenn > anzBuchstaben)
+                    {
+                        int endeString =laengeBenenn - anzBuchstaben;
+                        string newFilename = fileName.Remove(endeString, anzBuchstaben);
+                        lbFilesNewNames.Items.Add(i + 1 + ". " + newFilename);
+                    } else
+                    {
+                        string newFilename = fileName;
+                        lbFilesNewNames.Items.Add(i + 1 + ". " + newFilename);
+                    }
+                    
+                 
+                }
+
             }
         }
 
-        private void RadioButton_Checked_1(object sender, RoutedEventArgs e)
+        private void RadioButton_Checked(object sender, RoutedEventArgs e)
+        {
+
+        }
+
+         private void RadioButton_Checked_1(object sender, RoutedEventArgs e)
         {
 
         }

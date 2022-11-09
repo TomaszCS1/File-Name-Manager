@@ -17,7 +17,6 @@
 
         <ListBox x:Name="lbFilesInDirectory" HorizontalAlignment="Left" Height="165" Margin="21,97,0,0" VerticalAlignment="Top" Width="308" d:ItemsSource="{d:SampleData ItemCount=5}"/>
         <ListBox HorizontalAlignment="Left" Height="165" Margin="395,99,0,0" Name="lbFilesNewNames"  VerticalAlignment="Top" Width="305" SelectionChanged="ListBox_SelectionChanged_1" IsManipulationEnabled="True" Background="#FF44B335" d:ItemsSource="{d:SampleData ItemCount=5}"/>
-        <TextBox x:Name="tbName" HorizontalAlignment="Left" Height="35" Margin="395,288,0,0" Text="neue Benen" TextWrapping="Wrap" VerticalAlignment="Top" Width="305" TextChanged="TextBox_TextChanged"/>
 
         <Canvas HorizontalAlignment="Left" Height="227" Margin="865,52,0,0" VerticalAlignment="Top" Width="526">
             <Label Content="Anzahl Buchstaben (die am Anfang/Ende zum beibehalten)" Height="82" Canvas.Left="30" Canvas.Top="32" Width="326" ForceCursor="True" RenderTransformOrigin="0.349,0.289"/>
@@ -50,7 +49,8 @@
         </Canvas>
         <Rectangle HorizontalAlignment="Left" Height="228" Margin="876,0,0,196" Stroke="Black" VerticalAlignment="Bottom" Width="480"/>
         <Button Content="Änderungen Vorschau" HorizontalAlignment="Left" Height="45" Margin="878,547,0,0" VerticalAlignment="Top" Width="156" Click="aenderVorschau"/>
-        <Label Content="Vorschau neue Benennungen" HorizontalAlignment="Left" Margin="395,62,0,0" VerticalAlignment="Top" Width="154" FontWeight="Normal"/>
+        <Label Content="Vorschau neue Benennungen" HorizontalAlignment="Left" Margin="395,62,0,0" VerticalAlignment="Top" Width="180" FontWeight="Normal"/>
         <Label Content="Alte Benennungen" HorizontalAlignment="Left" Margin="21,62,0,0" VerticalAlignment="Top" Width="154" FontWeight="Normal"/>
+        <Button Content="Änderungen speichern" HorizontalAlignment="Left" Height="40" Margin="395,294,0,0" VerticalAlignment="Top" Width="140"/>
     </Grid>
 </Window>

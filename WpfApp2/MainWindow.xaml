@@ -56,18 +56,18 @@
             <Label Content="Textteile ändern" Canvas.Left="35" Canvas.Top="30" FontWeight="Bold"></Label>
             <Label Content="alter Text 1" Canvas.Left="46" Canvas.Top="60"></Label>
             <Label Content="neuer Text 1" Canvas.Left="231" Canvas.Top="60"></Label>
-            <TextBox Height="18" Width="150" Canvas.Left="46" Canvas.Top="91"></TextBox>
-            <TextBox Height="18" Width="150" Canvas.Left="231" Canvas.Top="91"  ></TextBox>
+            <TextBox x:Name="tbAltText1"  Height="18" Width="150" Canvas.Left="46" Canvas.Top="91"></TextBox>
+            <TextBox x:Name="tbNeuText1"  Height="18" Width="150" Canvas.Left="231" Canvas.Top="91"  ></TextBox>
             <Label Content="alter Text 2" Canvas.Left="46" Canvas.Top="133"/>
             <Label Content="neuer Text 2" Canvas.Left="231" Canvas.Top="133"/>
-            <TextBox Height="18" Width="150" Canvas.Left="46" Canvas.Top="164"/>
-            <TextBox Height="18" Width="150" Canvas.Left="231" Canvas.Top="164"  />
+            <TextBox x:Name="tbAltText2" Height="18" Width="150" Canvas.Left="46" Canvas.Top="164"/>
+            <TextBox x:Name="tbNeuText2" Height="18" Width="150" Canvas.Left="231" Canvas.Top="164"  />
 
 
         </Canvas>
-        <Button Content="Änderungen Vorschau" HorizontalAlignment="Left" Height="45" Margin="12,547,0,0" VerticalAlignment="Top" Width="156" Click="aenderVorschau"/>
+        <Button Content="Änderungen Vorschau" HorizontalAlignment="Left" Height="45" Margin="334,507,0,0" VerticalAlignment="Top" Width="156" Click="aenderVorschau"/>
         <Label Content="Vorschau neue Benennungen" HorizontalAlignment="Left" Margin="935,22,0,0" VerticalAlignment="Top" Width="180" FontWeight="Normal"/>
         <Label Content="Vorschau alte Benennungen" HorizontalAlignment="Left" Margin="530,22,0,0" VerticalAlignment="Top" Width="185" FontWeight="Normal"/>
-        <Button Content="Änderungen speichern" HorizontalAlignment="Left" Height="40" Margin="1160,547,0,0" VerticalAlignment="Top" Width="140"/>
+        <Button Content="Änderungen speichern" HorizontalAlignment="Left" Height="45" Margin="334,569,0,0" VerticalAlignment="Top" Width="156"/>
     </Grid>
 </Window>

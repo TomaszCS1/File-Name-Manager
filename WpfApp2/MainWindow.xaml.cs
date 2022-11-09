@@ -132,7 +132,7 @@ namespace WpfApp2
         {
 
 
-            if (rbAmAnfang.IsChecked == true && tbAnzBuchst.Text.Length != 0)       //AM ANFANG KURZEN
+            if (rbAmAnfang.IsChecked == true && tbAnzBuchst.Text.Length != 0)                    //AM ANFANG KURZEN
             {
                 lbFilesNewNames.Items.Clear();
 
@@ -155,10 +155,9 @@ namespace WpfApp2
                 }
 
 
-            } else if (rbAmEnde.IsChecked == true && tbAnzBuchst.Text.Length != 0)      //AM ENDE KURZEN
+            } else if (rbAmEnde.IsChecked == true && tbAnzBuchst.Text.Length != 0)               //AM ENDE KURZEN
             {
                 lbFilesNewNames.Items.Clear();
-
                 for (int i = 0; i < files.Length; i++)
                 {
                     string fileName = System.IO.Path.GetFileName(files[i]);
@@ -174,6 +173,17 @@ namespace WpfApp2
                         lbFilesNewNames.Items.Add(i + 1 + ". " + newFilename);
                     }
                                     
+                }
+
+            } else if (tbAltText1.Text.Length !=0)                                                //ALTER TEXT 1
+            {
+                lbFilesNewNames.Items.Clear();
+                string aText1 = tbAltText1.Text;
+                for (int i = 0; i < files.Length; i++)
+                {
+                    string fileName = System.IO.Path.GetFileName(files[i]);
+                    int laengeBenenn = fileName.IndexOf(aText1);
+
                 }
 
             }

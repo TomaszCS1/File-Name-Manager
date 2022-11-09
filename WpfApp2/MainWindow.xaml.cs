@@ -123,7 +123,15 @@ namespace WpfApp2
 
         private void RadioButton_Checked(object sender, RoutedEventArgs e)
         {
+            lbFilesNewNames.Items.Clear();
 
+            for (int i = 0; i < files.Length; i++)
+            {
+                string fileName = System.IO.Path.GetFileName(files[i]);
+                string newFilename = fileName.Remove((files[i].IndexOf(".")-anzBuchstaben), anzBuchstaben);
+
+                lbFilesNewNames.Items.Add(i + 1 + ". " + newFilename);
+            }
         }
 
         private void TextBox_TextChanged_1(object sender, TextChangedEventArgs e)
@@ -135,16 +143,23 @@ namespace WpfApp2
 
         private void aenderVorschau(object sender, RoutedEventArgs e)
         {
-            lbFilesNewNames.Items.Clear();
-
-            for (int i = 0; i < files.Length; i++)
+            if (rbAmAnfang.IsChecked == true && tbAnzBuchst.Text.Length != 0)
             {
-                string fileName = System.IO.Path.GetFileName(files[i]);
-                string newFilename = fileName.Remove(0, anzBuchstaben);
+                lbFilesNewNames.Items.Clear();
 
-                lbFilesNewNames.Items.Add(i + 1 + ". " + newFilename);
+                for (int i = 0; i < files.Length; i++)
+                {
+                    string fileName = System.IO.Path.GetFileName(files[i]);
+                    string newFilename = fileName.Remove(0, anzBuchstaben);
+
+                    lbFilesNewNames.Items.Add(i + 1 + ". " + newFilename);
+                }
             }
         }
 
+        private void RadioButton_Checked_1(object sender, RoutedEventArgs e)
+        {
+
+        }
     }
 }

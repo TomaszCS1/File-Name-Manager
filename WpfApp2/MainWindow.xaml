@@ -11,7 +11,7 @@
 
         <TextBox Name="tb1" HorizontalAlignment="Left" Margin="147,521,0,85" Text="TextBox" Width="160" Visibility="Hidden" />
 
-        <Button Height="50" Margin="355,629,842,0" Content="Fertig" Click="btnClose" VerticalAlignment="Top" ></Button>
+        <Button Height="50" Margin="355,634,842,28" Content="Fertig" Click="btnClose" ></Button>
 
         <Button Content="Directory open" HorizontalAlignment="Left" Margin="10,8,0,0" VerticalAlignment="Top" Height="30" Width="158" Click="btnOpenDiretory"/>
 

@@ -6,12 +6,12 @@
         xmlns:local="clr-namespace:WpfApp2"
         mc:Ignorable="d"
         Title="FILE UMB" Height="748" Width="1352" Foreground="{x:Null}">
-    <Grid Margin="10,10,10,10">
+    <Grid Margin="10,10,10,5">
         <Button Margin="154,462,1104,208" Content="File open" Click="Button_Click" Visibility="Hidden"/>
 
         <TextBox Name="tb1" HorizontalAlignment="Left" Margin="147,521,0,85" Text="TextBox" Width="160" Visibility="Hidden" />
 
-        <Button Height="50" Margin="355,634,842,28" Content="Fertig" Click="btnClose" ></Button>
+
 
         <Button Content="Directory open" HorizontalAlignment="Left" Margin="10,8,0,0" VerticalAlignment="Top" Height="30" Width="158" Click="btnOpenDiretory"/>
 
@@ -23,7 +23,7 @@
                 </LinearGradientBrush>
             </ListBox.Background>
         </ListBox>
-        
+
         <ListBox HorizontalAlignment="Left" Height="445" Margin="935,58,0,0" Name="lbFilesNewNames"  VerticalAlignment="Top" Width="365" SelectionChanged="ListBox_SelectionChanged_1" IsManipulationEnabled="True" >
             <ListBox.Background>
                 <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
@@ -62,11 +62,13 @@
             <TextBox x:Name="tbNeuText2" Height="18" Width="150" Canvas.Left="231" Canvas.Top="164"  />
 
         </Canvas>
-        
-        
-        <Button Content="Änderungen Vorschau" HorizontalAlignment="Left" Height="45" Margin="334,507,0,0" VerticalAlignment="Top" Width="156" Click="aenderVorschau"/>
+
+
         <Label Content="Vorschau neue Benennungen" HorizontalAlignment="Left" Margin="935,22,0,0" VerticalAlignment="Top" Width="180" FontWeight="Normal"/>
         <Label Content="Vorschau alte Benennungen" HorizontalAlignment="Left" Margin="530,22,0,0" VerticalAlignment="Top" Width="185" FontWeight="Normal"/>
-        <Button Content="Änderungen speichern" HorizontalAlignment="Left" Height="45" Margin="334,569,0,0" VerticalAlignment="Top" Width="156"/>
+        <Button Content="Änderungen speichern" Height="45" Margin="335,560,830,0" VerticalAlignment="Top" />
+        <Button Content="Fertig" Click="btnClose" Height="45" Margin="335,614,830,30" FontWeight="Bold"  />
+        <Button Content="Änderungen Vorschau"  Height="45" Margin="335,507,830,0" VerticalAlignment="Top" Click="aenderVorschau"/>
+
     </Grid>
 </Window>

@@ -152,7 +152,8 @@ namespace WpfApp2
                 }
 
 
-            } else if (rbAmEnde.IsChecked == true && tbAnzBuchst.Text.Length != 0)               //AM ENDE KURZEN
+            }
+            else if (rbAmEnde.IsChecked == true && tbAnzBuchst.Text.Length != 0)               //AM ENDE KURZEN
             {
                 anzBuchstabenStr = tbAnzBuchst.Text;
                 anzBuchstaben = Int32.Parse(anzBuchstabenStr);
@@ -163,18 +164,20 @@ namespace WpfApp2
                     int laengeBenenn = fileName.IndexOf(".");
                     if (laengeBenenn > anzBuchstaben)
                     {
-                        int endeString =laengeBenenn - anzBuchstaben;
+                        int endeString = laengeBenenn - anzBuchstaben;
                         string newFilename = fileName.Remove(endeString, anzBuchstaben);
                         lbFilesNewNames.Items.Add(i + 1 + ". " + newFilename);
-                    } else
+                    }
+                    else
                     {
                         string newFilename = fileName;
                         lbFilesNewNames.Items.Add(i + 1 + ". " + newFilename);
                     }
-                                    
+
                 }
 
-            } else if (tbAltText1.Text.Length !=0)                                                //ALTER TEXT 1
+            }
+            else if (tbAltText1.Text.Length != 0)                                                //ALTER TEXT 1
             {
                 lbFilesNewNames.Items.Clear();
                 int anzBuchstaben = tbAltText1.Text.Length;
@@ -189,7 +192,7 @@ namespace WpfApp2
                     int leangeBenenn2 = laengeBenenn1 + altText1.Length;                                                                                       //Index der Stelle nach dem alter Text 1 
                     if (laengeBenenn1 > 0)
                     {
-                        string newFilename = fileName.Remove(laengeBenenn1, fileName.Length-laengeBenenn1) + neuText1 + fileName.Substring(leangeBenenn2);
+                        string newFilename = fileName.Remove(laengeBenenn1, fileName.Length - laengeBenenn1) + neuText1 + fileName.Substring(leangeBenenn2);
                         lbFilesNewNames.Items.Add(i + 1 + ". " + newFilename);
                     }
                     else
@@ -198,7 +201,37 @@ namespace WpfApp2
                         lbFilesNewNames.Items.Add(i + 1 + ". " + newFilename);
                     }
                 }
-                
+
+            }
+            else if (tbAltText2.Text.Length != 0)                                                //ALTER TEXT 2
+            {
+                lbFilesNewNames.Items.Clear();
+                int anzBuchstaben = tbAltText2.Text.Length;
+
+                string altText2 = tbAltText2.Text;
+                string neuText2 = tbNeuText2.Text;
+                for (int i = 0; i < files.Length; i++)
+                {
+                    string fileName = System.IO.Path.GetFileName(files[i]);
+
+                    int laengeBenenn1 = fileName.IndexOf(altText2);                                                                //die Länge der Benennung vor dem alter Text 1  
+                    int leangeBenenn2 = laengeBenenn1 + altText2.Length;                                                                                       //Index der Stelle nach dem alter Text 1 
+                    if (laengeBenenn1 >= 0)
+                    {
+                        string newFilename = fileName.Remove(laengeBenenn1, fileName.Length - laengeBenenn1) + neuText2 + fileName.Substring(leangeBenenn2);
+                        lbFilesNewNames.Items.Add(i + 1 + ". " + newFilename);
+                    }
+                    else
+                    {
+                        string newFilename = fileName;
+                        lbFilesNewNames.Items.Add(i + 1 + ". " + newFilename);
+                    }
+                }
+            }
+            else if (files == null)
+            {
+                MessageBox.Show("Choose directory -> DIRECTORY OPEN");
+
             }
         }
 

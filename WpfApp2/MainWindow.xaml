@@ -23,6 +23,7 @@
                 </LinearGradientBrush>
             </ListBox.Background>
         </ListBox>
+        
         <ListBox HorizontalAlignment="Left" Height="445" Margin="935,58,0,0" Name="lbFilesNewNames"  VerticalAlignment="Top" Width="365" SelectionChanged="ListBox_SelectionChanged_1" IsManipulationEnabled="True" >
             <ListBox.Background>
                 <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
@@ -33,7 +34,7 @@
             </ListBox.Background>
         </ListBox>
 
-        <Canvas HorizontalAlignment="Left" Height="227" Margin="-1,52,0,0" VerticalAlignment="Top" Width="526">
+        <Canvas x:Name="dNameKurzen"   HorizontalAlignment="Left" Height="227" Margin="-1,52,0,0" VerticalAlignment="Top" Width="526">
             <Label Content=" Deteinamen kurzen" Canvas.Left="35" Canvas.Top="30" FontWeight="Bold"></Label>
             <Label Content="Anzahl Buchstaben (die am Anfang/Ende zum beibehalten)" Height="33" Canvas.Left="30" Canvas.Top="55" Width="326" ForceCursor="True" RenderTransformOrigin="0.349,0.289"/>
             <TextBox x:Name="tbAnzBuchst" Height="18"  TextWrapping="Wrap" Width="60" TextChanged="TextBox_TextChanged_1" Canvas.Left="37" Canvas.Top="88" />
@@ -47,24 +48,22 @@
 
         </Canvas>
 
-
-
-
         <Canvas x:Name="textAendern" Margin="-1,280,832,190" Cursor="Arrow">
             <Rectangle Height="200" Margin="10" Stroke="Black" Width="480" />
 
             <Label Content="Textteile ändern" Canvas.Left="35" Canvas.Top="30" FontWeight="Bold"></Label>
             <Label Content="alter Text 1" Canvas.Left="46" Canvas.Top="60"></Label>
             <Label Content="neuer Text 1" Canvas.Left="231" Canvas.Top="60"></Label>
-            <TextBox x:Name="tbAltText1"  Height="18" Width="150" Canvas.Left="46" Canvas.Top="91"></TextBox>
+            <TextBox x:Name="tbAltText1"  Height="18" Width="150" Canvas.Left="46" Canvas.Top="91" TextChanged="tbAltText1_TextChanged"></TextBox>
             <TextBox x:Name="tbNeuText1"  Height="18" Width="150" Canvas.Left="231" Canvas.Top="91"  ></TextBox>
             <Label Content="alter Text 2" Canvas.Left="46" Canvas.Top="133"/>
             <Label Content="neuer Text 2" Canvas.Left="231" Canvas.Top="133"/>
             <TextBox x:Name="tbAltText2" Height="18" Width="150" Canvas.Left="46" Canvas.Top="164"/>
             <TextBox x:Name="tbNeuText2" Height="18" Width="150" Canvas.Left="231" Canvas.Top="164"  />
 
-
         </Canvas>
+        
+        
         <Button Content="Änderungen Vorschau" HorizontalAlignment="Left" Height="45" Margin="334,507,0,0" VerticalAlignment="Top" Width="156" Click="aenderVorschau"/>
         <Label Content="Vorschau neue Benennungen" HorizontalAlignment="Left" Margin="935,22,0,0" VerticalAlignment="Top" Width="180" FontWeight="Normal"/>
         <Label Content="Vorschau alte Benennungen" HorizontalAlignment="Left" Margin="530,22,0,0" VerticalAlignment="Top" Width="185" FontWeight="Normal"/>

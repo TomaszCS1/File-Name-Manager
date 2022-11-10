@@ -95,8 +95,6 @@ namespace WpfApp2
 
         private void ListBox_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
-
-
             // string copySelected = lbFilesInDirectory.SelectedItem.ToString();
             //tbName.Text = copySelected;
         }
@@ -123,9 +121,7 @@ namespace WpfApp2
 
         private void TextBox_TextChanged_1(object sender, TextChangedEventArgs e)
         {
-            anzBuchstabenStr = tbAnzBuchst.Text;
-            anzBuchstaben = Int32.Parse(anzBuchstabenStr);
-            Console.WriteLine(anzBuchstaben);
+          
         }
 
         private void aenderVorschau(object sender, RoutedEventArgs e)
@@ -135,7 +131,8 @@ namespace WpfApp2
             if (rbAmAnfang.IsChecked == true && tbAnzBuchst.Text.Length != 0)                    //AM ANFANG KURZEN
             {
                 lbFilesNewNames.Items.Clear();
-
+                anzBuchstabenStr = tbAnzBuchst.Text;
+                anzBuchstaben = Int32.Parse(anzBuchstabenStr);
                 for (int i = 0; i < files.Length; i++)
                 {
                     string fileName = System.IO.Path.GetFileName(files[i]);
@@ -157,6 +154,8 @@ namespace WpfApp2
 
             } else if (rbAmEnde.IsChecked == true && tbAnzBuchst.Text.Length != 0)               //AM ENDE KURZEN
             {
+                anzBuchstabenStr = tbAnzBuchst.Text;
+                anzBuchstaben = Int32.Parse(anzBuchstabenStr);
                 lbFilesNewNames.Items.Clear();
                 for (int i = 0; i < files.Length; i++)
                 {
@@ -178,14 +177,28 @@ namespace WpfApp2
             } else if (tbAltText1.Text.Length !=0)                                                //ALTER TEXT 1
             {
                 lbFilesNewNames.Items.Clear();
-                string aText1 = tbAltText1.Text;
+                int anzBuchstaben = tbAltText1.Text.Length;
+
+                string altText1 = tbAltText1.Text;
+                string neuText1 = tbNeuText1.Text;
                 for (int i = 0; i < files.Length; i++)
                 {
                     string fileName = System.IO.Path.GetFileName(files[i]);
-                    int laengeBenenn = fileName.IndexOf(aText1);
 
+                    int laengeBenenn1 = fileName.IndexOf(altText1);                                                                //die Länge der Benennung vor dem alter Text 1  
+                    int leangeBenenn2 = laengeBenenn1 + altText1.Length;                                                                                       //Index der Stelle nach dem alter Text 1 
+                    if (laengeBenenn1 > 0)
+                    {
+                        string newFilename = fileName.Remove(laengeBenenn1, fileName.Length-laengeBenenn1) + neuText1 + fileName.Substring(leangeBenenn2);
+                        lbFilesNewNames.Items.Add(i + 1 + ". " + newFilename);
+                    }
+                    else
+                    {
+                        string newFilename = fileName;
+                        lbFilesNewNames.Items.Add(i + 1 + ". " + newFilename);
+                    }
                 }
-
+                
             }
         }
 
@@ -195,6 +208,11 @@ namespace WpfApp2
         }
 
          private void RadioButton_Checked_1(object sender, RoutedEventArgs e)
+        {
+
+        }
+
+        private void tbAltText1_TextChanged(object sender, TextChangedEventArgs e)
         {
 
         }

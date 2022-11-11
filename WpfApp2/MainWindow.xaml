@@ -12,23 +12,28 @@
         Background="Transparent"
                 Title="FILE UMBENENNEN" Height="748" Width="1352" Foreground="{x:Null}">
     <Border CornerRadius="20"
-            Background="#432C7A"
+            Background="#FFEFECEC"
             BorderBrush="#FF8FB1"
             BorderThickness="5">
 
 
         <Grid Margin="10,10,10,5" Visibility="Visible" Background="Transparent">
+            <Grid.RowDefinitions>
+                <RowDefinition/>
+                <RowDefinition Height="0*"/>
+            </Grid.RowDefinitions>
 
-            <TextBox Name="tb1" HorizontalAlignment="Left" Margin="147,521,0,85" Text="TextBox" Width="160" Visibility="Hidden" />
-            <Button  Content="Directory open" HorizontalAlignment="Left" Margin="10,8,0,0" VerticalAlignment="Top" Height="30" Width="158" Click="btnOpenDiretory" Background="#FFFCE2DB"/>
-            <Button Height="30" Width="30" Margin="1275,10,17,683" ></Button>
-            
-            
+            <TextBox Name="tb1" HorizontalAlignment="Left" Margin="147,521,0,62" Text="TextBox" Width="160" Visibility="Hidden" />
+            <Button Margin="1275,14,17,664" />
+            <Canvas HorizontalAlignment="Left" Height="530" Margin="516,22,0,0" VerticalAlignment="Top" Width="796" Background="White"/>
+
+
             <ListBox x:Name="lbFilesInDirectory" HorizontalAlignment="Left" Height="447" Margin="530,57,0,0" VerticalAlignment="Top" Width="375" >
                 <ListBox.Background>
                     <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
                         <GradientStop Color="#FFFBF9F9"/>
-                        <GradientStop Color="#FFE4B8C8" Offset="1"/>
+                        <GradientStop Color="#FFEBDFDF" Offset="0.857"/>
+                        <GradientStop Color="#FFEEE3E3" Offset="1"/>
                     </LinearGradientBrush>
                 </ListBox.Background>
             </ListBox>
@@ -37,13 +42,13 @@
                 <ListBox.Background>
                     <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
                         <GradientStop Color="#FFD9E0E8"/>
-                        <GradientStop Color="#FFD4DCE4"/>
-                        <GradientStop Color="#FF66B477" Offset="0.934"/>
+                        <GradientStop Color="#FFD4DCE4" Offset="1"/>
+                        <GradientStop Color="#FFFCFCFC" Offset="0"/>
                     </LinearGradientBrush>
                 </ListBox.Background>
             </ListBox>
 
-            <Canvas x:Name="dNameKurzen"   HorizontalAlignment="Left" Height="227" Margin="-1,52,0,0" VerticalAlignment="Top" Width="526">
+            <Canvas x:Name="dNameKurzen" Background="White"  HorizontalAlignment="Left" Height="236" Margin="20,23,0,0" VerticalAlignment="Top" Width="480" IsHitTestVisible="False">
                 <Label Content=" Deteinamen kurzen" Canvas.Left="35" Canvas.Top="30" FontWeight="Bold"></Label>
                 <Label Content="Anzahl Buchstaben (die am Anfang/Ende zum beibehalten)" Height="33" Canvas.Left="30" Canvas.Top="55" Width="326" ForceCursor="True" RenderTransformOrigin="0.349,0.289"/>
                 <TextBox x:Name="tbAnzBuchst" Height="18"  TextWrapping="Wrap" Width="60" TextChanged="TextBox_TextChanged_1" Canvas.Left="37" Canvas.Top="88" />
@@ -53,12 +58,10 @@
                 <RadioButton x:Name="rbAmEnde"    GroupName="Group1" Content="Am Ende" Height="18" Width="100" Checked="RadioButton_Checked" Canvas.Left="236" Canvas.Top="88" />
                 <TextBox Height="19" Margin="108,170,0,0" TextWrapping="Wrap" Text="TextBox" Width="60" Canvas.Left="12" Canvas.Top="-23"/>
                 <TextBox Height="18" Margin="275,170,0,0" TextWrapping="Wrap" Text="TextBox" Width="170" Canvas.Left="23" Canvas.Top="-23"/>
-                <Rectangle Height="200" Stroke="Black"  Width="480" Margin="10"/>
 
             </Canvas>
 
-            <Canvas x:Name="textAendern" Margin="-1,280,832,190" Cursor="Arrow">
-                <Rectangle Height="200" Margin="10" Stroke="Black" Width="480" />
+            <Canvas x:Name="textAendern" Margin="20,287,822,211" Cursor="Arrow" Background="White" >
 
                 <Label Content="Textteile ändern" Canvas.Left="35" Canvas.Top="30" FontWeight="Bold"></Label>
                 <Label Content="alter Text 1" Canvas.Left="46" Canvas.Top="60"></Label>
@@ -73,12 +76,13 @@
             </Canvas>
 
 
-            <Label Content="Vorschau Änderungen" HorizontalAlignment="Left" Margin="935,22,0,0" VerticalAlignment="Top" Width="180" FontWeight="Normal"/>
-            <Label Content="Vorschau alte Benennungen" HorizontalAlignment="Left" Margin="530,22,0,0" VerticalAlignment="Top" Width="185" FontWeight="Normal"/>
+            <Label Content="Vorschau Änderungen" HorizontalAlignment="Left" Margin="935,22,0,0" VerticalAlignment="Top" Width="180" FontWeight="Normal" Height="26"/>
+            <Label Content="Vorschau alte Benennungen" HorizontalAlignment="Left" Margin="530,22,0,0" VerticalAlignment="Top" Width="185" FontWeight="Normal" Height="30"/>
             <Button Content="Änderungen speichern" Height="45" Margin="335,560,830,0" VerticalAlignment="Top" Background="#FFFCE2DB" />
-            <Button Content="Fertig" Click="btnClose" Height="45" Margin="335,614,830,30" FontWeight="Bold" Background="#FFFCE2DB"  />
+            <Button Content="Fertig" Click="btnClose" Margin="335,632,830,32" FontWeight="Bold" Background="#FFFCE2DB"  />
             <Button Content="Änderungen Vorschau"  Height="45" Margin="335,507,830,0" VerticalAlignment="Top" Click="aenderVorschau" Background="#FFFCE2DB"/>
-            <WindowsFormsHost HorizontalAlignment="Left" Height="100" Margin="905,530,0,0" VerticalAlignment="Top" Width="100"/>
+            <Canvas HorizontalAlignment="Left" Height="3" Margin="530,22,0,0" VerticalAlignment="Top" Width="0"/>
+            <Button  Content="Directory open" HorizontalAlignment="Left" Margin="10,8,0,0" VerticalAlignment="Top" Height="30" Width="158" Click="btnOpenDiretory" Background="#FFFCE2DB"/>
 
         </Grid>
     </Border>

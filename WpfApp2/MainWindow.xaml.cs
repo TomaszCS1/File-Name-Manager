@@ -68,6 +68,12 @@ namespace WpfApp2
          }
         
 
+        private void Window_MouseDown(object sender, MouseButtonEventArgs e)
+        {
+            if (e.LeftButton == MouseButtonState.Pressed)
+                DragMove();
+        }
+
 
         private void ListBox_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {

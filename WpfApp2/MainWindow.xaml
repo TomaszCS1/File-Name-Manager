@@ -60,7 +60,7 @@
 		</Canvas>
 
 
-		<Label Content="Vorschau neue Benennungen" HorizontalAlignment="Left" Margin="935,22,0,0" VerticalAlignment="Top" Width="180" FontWeight="Normal"/>
+		<Label Content="Vorschau Änderungen" HorizontalAlignment="Left" Margin="935,22,0,0" VerticalAlignment="Top" Width="180" FontWeight="Normal"/>
 		<Label Content="Vorschau alte Benennungen" HorizontalAlignment="Left" Margin="530,22,0,0" VerticalAlignment="Top" Width="185" FontWeight="Normal"/>
 		<Button Content="Änderungen speichern" Height="45" Margin="335,560,830,0" VerticalAlignment="Top" />
 		<Button Content="Fertig" Click="btnClose" Height="45" Margin="335,614,830,30" FontWeight="Bold"  />

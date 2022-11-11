@@ -57,8 +57,6 @@ namespace WpfApp2
             //    filePath = openFileDialogDir.FileName;
             //    directPath = System.IO.Path.GetDirectoryName(filePath);
 
-
-
                 files = Directory.GetFiles(directPath);
 
 
@@ -149,6 +147,54 @@ namespace WpfApp2
                 }
 
             }
+            else if (tbAltText1.Text.Length != 0 && tbAltText2.Text.Length != 0)                                                //ALTER TEXT 1 und ALTER TEXT 2 ersätzt
+            {
+                lbFilesNewNames.Items.Clear();
+                int anzBuchstaben = tbAltText2.Text.Length;
+
+                string altText1 = tbAltText1.Text;
+                string neuText1 = tbNeuText1.Text;
+                string altText2 = tbAltText2.Text;
+                string neuText2 = tbNeuText2.Text;
+
+                for (int i = 0; i < files.Length; i++)
+                {
+                    string fileName = System.IO.Path.GetFileName(files[i]);
+                    string newFilename2;
+                    string newFilename1;
+
+                    int laengeBenenn1 = fileName.IndexOf(altText1);                                                                 
+                    int leangeBenenn2 = laengeBenenn1 + altText1.Length;                                                                                       
+                    int laengeBenenn3 = fileName.IndexOf(altText2);                                                                
+                    int leangeBenenn4 = laengeBenenn3 + altText2.Length;
+
+                    if (laengeBenenn1 >= 0)                     //alter text1 gefunden
+                    {
+                        newFilename1 = fileName.Remove(laengeBenenn1, fileName.Length - laengeBenenn1) + neuText1 + fileName.Substring(leangeBenenn2);
+                        if (laengeBenenn3 > 0)                  //alter text2 gefunden
+                        {
+                            newFilename2 = newFilename1.Remove(laengeBenenn3, fileName.Length - laengeBenenn3) + neuText2 + newFilename1.Substring(leangeBenenn4);
+                            newFilename1 = newFilename2;
+                            //lbFilesNewNames.Items.Add(i + 1 + ". " + newFilename2);
+                        }
+
+                        lbFilesNewNames.Items.Add(i + 1 + ". " + newFilename1);
+                    }     
+                    else if (laengeBenenn1<0 && laengeBenenn3>=0)
+                    {
+                        newFilename2 = fileName.Remove(laengeBenenn3, fileName.Length - laengeBenenn3) + neuText2 + fileName.Substring(leangeBenenn4);
+                        lbFilesNewNames.Items.Add(i + 1 + ". " + newFilename2);
+
+                    }
+
+
+                    else
+                        {
+                            string newFilename = fileName;
+                            lbFilesNewNames.Items.Add(i + 1 + ". " + newFilename);
+                        }
+                            }
+            }
             else if (tbAltText1.Text.Length != 0)                                                //ALTER TEXT 1
             {
                 lbFilesNewNames.Items.Clear();
@@ -162,7 +208,7 @@ namespace WpfApp2
 
                     int laengeBenenn1 = fileName.IndexOf(altText1);                                                                //die Länge der Benennung vor dem alter Text 1  
                     int leangeBenenn2 = laengeBenenn1 + altText1.Length;                                                                                       //Index der Stelle nach dem alter Text 1 
-                    if (laengeBenenn1 > 0)
+                    if (laengeBenenn1 >= 0)
                     {
                         string newFilename = fileName.Remove(laengeBenenn1, fileName.Length - laengeBenenn1) + neuText1 + fileName.Substring(leangeBenenn2);
                         lbFilesNewNames.Items.Add(i + 1 + ". " + newFilename);
@@ -200,6 +246,11 @@ namespace WpfApp2
                     }
                 }
             }
+
+            
+
+
+
             else if (files == null)
             {
                 System.Windows.MessageBox.Show("Choose directory -> DIRECTORY OPEN");

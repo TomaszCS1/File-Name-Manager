@@ -5,12 +5,13 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:WpfApp2"
      
-   WindowStyle="None"
+        WindowStyle="None"
         ResizeMode="NoResize"
         WindowStartupLocation="CenterScreen"
         MouseDown="Window_MouseDown"
         Background="Transparent"
-                Title="FILE UMBENENNEN" Height="750" Width="1350" >
+        Height="863" 
+        Width="1350">
     <Window.Resources>
         <Style TargetType="Button" x:Key="RoundButton">
             <Style.Resources>
@@ -34,47 +35,79 @@
 
     <Border CornerRadius="20"
             Background="#ebebeb"
-            BorderBrush="#574b60"
-            BorderThickness="5" Margin="0,0,0,59">
+            BorderThickness="5">
+        <Border.BorderBrush>
+            <LinearGradientBrush StartPoint="0,0" EndPoint="1,1">
+                <GradientStop Color="#574b60" Offset="0"/>
+                <GradientStop Color="#A9B8C7" Offset="0.65"/>
+                <GradientStop Color="#4D5971" Offset="1"/>
+
+            </LinearGradientBrush>
+        </Border.BorderBrush>
 
 
 
 
         <Grid Margin="10,10,10,5" Visibility="Visible" Background="Transparent">
+
+
             <Grid.RowDefinitions>
-                <RowDefinition Height="147*"/>
-                <RowDefinition Height="94*"/>
-                <RowDefinition Height="0*"/>
+                <RowDefinition Height="70">
+                </RowDefinition>
+                <RowDefinition Height="700"></RowDefinition>
+                <RowDefinition Height="130"/>
+
             </Grid.RowDefinitions>
 
-            <TextBox Name="tb1" HorizontalAlignment="Left" Margin="147,80,0,62" Text="TextBox" Width="160" Visibility="Hidden" Grid.Row="1" />
-            <Button Style="{DynamicResource RoundButtonMenu}" Height="30" Width="30" Margin="0,0,60,366" Background="#FFD671AD" Content="_" Foreground="White" VerticalAlignment="Bottom" HorizontalAlignment="Right" FontFamily="Verdana" FontSize="16" BorderBrush="{x:Null}"/>
-            <Button Style="{DynamicResource RoundButtonMenu}" Height="30" Width="30" Margin="0,0,10,366" Background="#FFFE5000" Content="X" Foreground="White" VerticalAlignment="Bottom" HorizontalAlignment="Right" FontFamily="Verdana" FontSize="16" BorderBrush="{x:Null}"/>
+            <Grid>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition/>
+                    <ColumnDefinition Width="300"/>
+                    <ColumnDefinition Width="300"/>
+                    <ColumnDefinition Width="400"/>
+                </Grid.ColumnDefinitions>
+            </Grid>
 
-            <Canvas HorizontalAlignment="Left" Height="505" Margin="516,66,0,0" VerticalAlignment="Top" Width="796" Background="White" Grid.RowSpan="2"/>
+            <Button x:Name="btnMinimieren"    Style="{DynamicResource RoundButtonMenu}" Height="30" Width="30"  Background="#FF9792E3" Content="-" Foreground="White" VerticalAlignment="Center" HorizontalAlignment="Left" FontFamily="Verdana" FontSize="16" BorderBrush="{x:Null}" Click="Button_Click_1" Margin="1240,0,0,0"/>
+            <Button x:Name="btnExit" Style="{DynamicResource RoundButtonMenu}" Height="30" Width="30"  Background="#FFEF6F6C" Content="X" Foreground="White" VerticalAlignment="Center" HorizontalAlignment="Left" FontFamily="Verdana" FontSize="16" BorderBrush="{x:Null}" Click="Button_Click" Margin="1280,0,0,0"/>
+            <Button Style="{DynamicResource RoundButton}" Content="Speichern"  Background="#7d8491" FontSize="20" Foreground="White" FontFamily="Verdana" Grid.Row="2" Margin="1035,10,40,65" />
+            <Button Style="{DynamicResource RoundButton}" Content="Vorschau"  VerticalAlignment="Top" Click="aenderVorschau" Background="#7d8491" FontFamily="Verdana" FontSize="20" Foreground="White" Grid.Row="2" Margin="259,10,822,0" Height="55"/>
+            <Button x:Name="directoryOpen" Content="Directory open" Margin="20,10,1070,0"  Click="btnOpenDiretory" Background="#7d8491" FontSize="20" Foreground="White" FontFamily="Verdana"/>
+            <Button x:Name="menuDateien1" Content="Dateien 1" Grid.Row="0" Margin="250,10,750,0"  Background="#7d8491" FontFamily="Verdana" FontSize="20" Foreground="White"/>
+            <Button x:Name="menuDateien2" Content="Dateien 2" Grid.Row="0" Margin="570,10,430,0"  Background="#7d8491" FontFamily="Verdana" FontSize="20" Foreground="White"/>
+            <Button x:Name="menuDateien3" Content="Dateien 3" Grid.Row="0" Margin="890,10,110,0"  Background="#7d8491" FontFamily="Verdana" FontSize="20" Foreground="White"/>
 
 
-            <ListBox x:Name="lbFilesInDirectory" HorizontalAlignment="Left" Height="447" Margin="530,105,0,0" VerticalAlignment="Top" Width="375" Grid.RowSpan="2" >
-                <ListBox.Background>
-                    <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
-                        <GradientStop Color="#FFFBF9F9"/>
-                        <GradientStop Color="#FFEBDFDF" Offset="0.857"/>
-                        <GradientStop Color="#FFEEE3E3" Offset="1"/>
-                    </LinearGradientBrush>
-                </ListBox.Background>
-            </ListBox>
 
-            <ListBox HorizontalAlignment="Left" Height="445" Margin="935,106,0,0" Name="lbFilesNewNames"  VerticalAlignment="Top" Width="365" SelectionChanged="ListBox_SelectionChanged_1" IsManipulationEnabled="True" Grid.RowSpan="2" >
-                <ListBox.Background>
-                    <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
-                        <GradientStop Color="#FFD9E0E8"/>
-                        <GradientStop Color="#FFD4DCE4" Offset="1"/>
-                        <GradientStop Color="#FFFCFCFC" Offset="0"/>
-                    </LinearGradientBrush>
-                </ListBox.Background>
-            </ListBox>
+            <Canvas HorizontalAlignment="Left" Height="674" Margin="516,16,0,0" VerticalAlignment="Top" Width="796" Background="White" Grid.Row="1">
 
-            <Canvas x:Name="dNameKurzen" Background="White"  HorizontalAlignment="Left" Height="252" Margin="20,66,0,0" VerticalAlignment="Top" Width="480" IsHitTestVisible="False">
+                <ListBox x:Name="lbFilesInDirectory" Height="620"  Width="375" Grid.RowSpan="2" Canvas.Left="10" Canvas.Top="44" >
+                    <ListBox.Background>
+                        <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
+                            <GradientStop Color="White"/>
+                            <GradientStop Color="#FFEBDFDF" Offset="1"/>
+                            <GradientStop Color="#FFFFEBED" Offset="1"/>
+                        </LinearGradientBrush>
+                    </ListBox.Background>
+                </ListBox>
+
+                <ListBox Height="620"  Name="lbFilesNewNames" Width="375" SelectionChanged="ListBox_SelectionChanged_1" IsManipulationEnabled="True" Grid.RowSpan="2" Canvas.Top="44" Canvas.Left="411" >
+                    <ListBox.Background>
+                        <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
+                            <GradientStop Color="#FFD9E0E8"/>
+                            <GradientStop Color="#FFEDFEEC" Offset="1"/>
+                            <GradientStop Color="White" Offset="0"/>
+                        </LinearGradientBrush>
+                    </ListBox.Background>
+                </ListBox>
+                <Label Content="Vorschau Änderungen" Width="201" FontWeight="Normal" Height="31" FontFamily="Montserrat" FontSize="16" Canvas.Top="9" Canvas.Left="10" RenderTransformOrigin="0.542,0.839"/>
+                <Label Content="Vorschau alte Benennungen" Width="260" FontWeight="Normal" Height="30" FontFamily="Montserrat" FontSize="16" Canvas.Left="411" Canvas.Top="9"/>
+
+            </Canvas>
+
+
+
+            <Canvas x:Name="dNameKurzen" Background="White"  HorizontalAlignment="Left" Height="319" Margin="20,16,0,0" VerticalAlignment="Top" Width="480" IsHitTestVisible="False" Grid.Row="1">
                 <Label Content=" Deteinamen kurzen" Canvas.Left="35" Canvas.Top="30" FontWeight="Bold" FontSize="16" FontFamily="Verdana"></Label>
                 <Label Content="Anzahl Buchstaben zum entfernen" Height="33" Canvas.Left="45" Canvas.Top="75" Width="425" ForceCursor="True" RenderTransformOrigin="0.349,0.289" FontSize="16" FontFamily="Verdana" HorizontalAlignment="Left" VerticalAlignment="Center"/>
                 <TextBox x:Name="tbAnzBuchst" Height="29"  TextWrapping="Wrap" Width="33" TextChanged="TextBox_TextChanged_1" Canvas.Left="83" Canvas.Top="113" HorizontalAlignment="Left" VerticalAlignment="Top" />
@@ -82,12 +115,12 @@
                 <Label Content="Dateiname" Canvas.Left="213" Canvas.Top="159" FontSize="16" FontFamily="Verdana"/>
                 <RadioButton x:Name="rbAmAnfang"   GroupName="Group1" Content="Am Anfang" Height="30"  Width="100" IsChecked="True" Checked="RadioButton_Checked_1" Canvas.Left="148" Canvas.Top="117" FontSize="16" HorizontalAlignment="Center" VerticalAlignment="Top"/>
                 <RadioButton x:Name="rbAmEnde"    GroupName="Group1" Content="Am Ende" Height="29" Width="100" Checked="RadioButton_Checked" Canvas.Left="285" Canvas.Top="117" FontSize="16" HorizontalAlignment="Center" VerticalAlignment="Top" />
-                <TextBox Height="32" TextWrapping="Wrap" Text="TextBox" Width="60" Canvas.Left="138" Canvas.Top="162" HorizontalAlignment="Center" VerticalAlignment="Top" RenderTransformOrigin="0.446,0.434" FontSize="16"/>
+                <TextBox Height="32" TextWrapping="Wrap" Text="TextBox" Width="60" Canvas.Left="130" Canvas.Top="162" RenderTransformOrigin="0.446,0.434" FontSize="16"/>
                 <TextBox Height="32" TextWrapping="Wrap" Text="TextBox" Width="151" Canvas.Left="315" Canvas.Top="162" HorizontalAlignment="Center" VerticalAlignment="Top" FontSize="16"/>
 
             </Canvas>
 
-            <Canvas x:Name="textAendern" Margin="20,333,822,93" Cursor="Arrow" Background="White" Grid.RowSpan="2" >
+            <Canvas x:Name="textAendern" Margin="20,353,820,10" Cursor="Arrow" Background="White" Grid.Row="1" >
 
                 <Label Content="Textteile ändern" Canvas.Left="35" Canvas.Top="30" FontWeight="Bold" FontSize="16" FontFamily="Verdana"></Label>
                 <Label Content="alter Text 1" Canvas.Left="46" Canvas.Top="60" FontSize="16" FontFamily="Verdana"></Label>
@@ -102,13 +135,6 @@
             </Canvas>
 
 
-            <Label Content="Vorschau Änderungen" HorizontalAlignment="Left" Margin="935,70,0,0" VerticalAlignment="Top" Width="201" FontWeight="Normal" Height="31" FontFamily="Verdana" FontSize="16"/>
-            <Label Content="Vorschau alte Benennungen" HorizontalAlignment="Center" Margin="0,70,0,0" VerticalAlignment="Top" Width="260" FontWeight="Normal" Height="30" FontFamily="Verdana" FontSize="16"/>
-            <Button Style="{DynamicResource RoundButton}" Content="Speichern" Height="46" Margin="1128,192,38,0" VerticalAlignment="Top" Background="#7d8491" Grid.Row="1" FontSize="20" Foreground="White" FontFamily="Verdana" />
-            <Button Style="{DynamicResource RoundButton}" Content="Fertig" Click="btnClose" Margin="1149,229,60,10" Background="#7d8491" Grid.Row="1" FontSize="20" Foreground="White" FontFamily="Verdana" Visibility="Hidden"  />
-            <Button Style="{DynamicResource RoundButton}" Content="Vorschau"  Height="45" Margin="343,192,822,0" VerticalAlignment="Top" Click="aenderVorschau" Background="#7d8491" Grid.Row="1" FontFamily="Verdana" FontSize="20" Foreground="White"/>
-            <Canvas HorizontalAlignment="Left" Height="3" Margin="530,22,0,0" VerticalAlignment="Top" Width="0"/>
-            <Button Style="{DynamicResource RoundButton}"  Content="Directory open" HorizontalAlignment="Left" Margin="20,10,0,0" VerticalAlignment="Top" Height="45" Width="181" Click="btnOpenDiretory" Background="#7d8491" FontSize="18" Foreground="White" FontFamily="Verdana"/>
 
         </Grid>
     </Border>

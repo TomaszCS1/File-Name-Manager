@@ -71,7 +71,7 @@
 
             <Button x:Name="btnMinimieren"    Style="{DynamicResource RoundButtonMenu}" Height="30" Width="30"  Background="#FF9792E3" Content="-" Foreground="White" VerticalAlignment="Center" HorizontalAlignment="Left" FontFamily="Verdana" FontSize="16" BorderBrush="{x:Null}" Click="Button_Click_1" Margin="1240,0,0,0"/>
             <Button x:Name="btnExit" Style="{DynamicResource RoundButtonMenu}" Height="30" Width="30"  Background="#FFEF6F6C" Content="X" Foreground="White" VerticalAlignment="Center" HorizontalAlignment="Left" FontFamily="Verdana" FontSize="16" BorderBrush="{x:Null}" Click="Button_Click" Margin="1280,0,0,0"/>
-            <Button Style="{DynamicResource RoundButton}" Content="Speichern"  Background="#2C65B5" FontSize="20" Foreground="White" FontFamily="Verdana" Grid.Row="2" Margin="1067,5,8,70" />
+            <Button x:Name="save" Style="{DynamicResource RoundButton}" Content="Speichern"  Background="#2C65B5" FontSize="20" Foreground="White" FontFamily="Verdana" Grid.Row="2" Margin="1067,5,8,70" Click="save_Click" />
             <Button Style="{DynamicResource RoundButton}" Content="Vorschau"  VerticalAlignment="Top" Click="aenderVorschau" Background="#2C65B5" FontFamily="Verdana" FontSize="20" Foreground="White" Grid.Row="2" Margin="139,5,942,0" Height="55"/>
             <Button x:Name="directoryOpen" Content="Directory open" Margin="20,10,1065,0"  Click="btnOpenDiretory" Background="#92AAD0" FontSize="20" Foreground="White" FontFamily="Verdana" />
             <Button x:Name="menuDateien1" Content="Dateien umbenennen" Grid.Row="0" Margin="305,10,715,0"  Background="#2C65B5" FontFamily="Verdana" FontSize="20" Foreground="White"/>

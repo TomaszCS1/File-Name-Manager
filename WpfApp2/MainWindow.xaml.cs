@@ -27,6 +27,7 @@ namespace WpfApp2
         string[] files;
         public string anzBuchstabenStr;
         public int anzBuchstaben;
+        ArrayList filesNewNames = new ArrayList();
 
         public MainWindow()
         {
@@ -50,13 +51,16 @@ namespace WpfApp2
                 directPath = fbd.SelectedPath;
             
             }
-                files = Directory.GetFiles(directPath);
-
-
-                lbFilesInDirectory.Items.Clear();
-                for (int i = 0; i < files.Length; i++)
+                if (directPath != null)
                 {
-                    lbFilesInDirectory.Items.Add(i + 1 + ". " + System.IO.Path.GetFileName(files[i]));
+                    files = Directory.GetFiles(directPath);
+
+
+                    lbFilesInDirectory.Items.Clear();
+                    for (int i = 0; i < files.Length; i++)
+                    {
+                        lbFilesInDirectory.Items.Add(i + 1 + ". " + System.IO.Path.GetFileName(files[i]));
+                    }
                 }
          }
         
@@ -112,11 +116,13 @@ namespace WpfApp2
                         int endeString = laengeBenenn - anzBuchstaben;
                         string newFilename = fileName.Remove(0, anzBuchstaben);
                         lbFilesNewNames.Items.Add(i + 1 + ". " + newFilename);
+                        filesNewNames.Add(newFilename);
                     }
                     else
                     {
                         string newFilename = fileName;
                         lbFilesNewNames.Items.Add(i + 1 + ". " + newFilename);
+filesNewNames.Add(newFilename);
                     }
                 }
 
@@ -136,11 +142,13 @@ namespace WpfApp2
                         int endeString = laengeBenenn - anzBuchstaben;
                         string newFilename = fileName.Remove(endeString, anzBuchstaben);
                         lbFilesNewNames.Items.Add(i + 1 + ". " + newFilename);
+filesNewNames.Add(newFilename);
                     }
                     else
                     {
                         string newFilename = fileName;
-                        lbFilesNewNames.Items.Add(i + 1 + ". " + newFilename);
+                        lbFilesNewNames.Items.Add(i + 1 + ". " + newFilename); 
+filesNewNames.Add(newFilename);
                     }
 
                 }
@@ -178,11 +186,13 @@ namespace WpfApp2
                         }
 
                         lbFilesNewNames.Items.Add(i + 1 + ". " + newFilename1);
+                        filesNewNames[i] = newFilename1;
                     }     
                     else if (laengeBenenn1<0 && laengeBenenn3>=0)
                     {
                         newFilename2 = fileName.Remove(laengeBenenn3, fileName.Length - laengeBenenn3) + neuText2 + fileName.Substring(leangeBenenn4);
                         lbFilesNewNames.Items.Add(i + 1 + ". " + newFilename2);
+                        filesNewNames[i] = newFilename2;
 
                     }
 
@@ -191,12 +201,14 @@ namespace WpfApp2
                         {
                             string newFilename = fileName;
                             lbFilesNewNames.Items.Add(i + 1 + ". " + newFilename);
-                        }
+filesNewNames.Add(newFilename);
+                    }
                             }
             }
             else if (tbAltText1.Text.Length != 0)                                                //ALTER TEXT 1
             {
                 lbFilesNewNames.Items.Clear();
+                int anzBuchstaben = tbAltText1.Text.Length;
 
                 string altText1 = tbAltText1.Text;
                 string neuText1 = tbNeuText1.Text;
@@ -210,11 +222,13 @@ namespace WpfApp2
                     {
                         string newFilename = fileName.Remove(laengeBenenn1, fileName.Length - laengeBenenn1) + neuText1 + fileName.Substring(leangeBenenn2);
                         lbFilesNewNames.Items.Add(i + 1 + ". " + newFilename);
+filesNewNames.Add(newFilename);
                     }
                     else
                     {
                         string newFilename = fileName;
                         lbFilesNewNames.Items.Add(i + 1 + ". " + newFilename);
+filesNewNames.Add(newFilename);
                     }
                 }
 
@@ -236,25 +250,27 @@ namespace WpfApp2
                     {
                         string newFilename = fileName.Remove(laengeBenenn1, fileName.Length - laengeBenenn1) + neuText2 + fileName.Substring(leangeBenenn2);
                         lbFilesNewNames.Items.Add(i + 1 + ". " + newFilename);
+filesNewNames.Add(newFilename);
                     }
                     else
                     {
                         string newFilename = fileName;
                         lbFilesNewNames.Items.Add(i + 1 + ". " + newFilename);
+filesNewNames.Add(newFilename);
                     }
                 }
             }
-
             
-
-
-
             else if (files == null)
             {
                 System.Windows.MessageBox.Show("Choose directory -> DIRECTORY OPEN");
 
             }
         }
+
+
+
+
 
         private void RadioButton_Checked(object sender, RoutedEventArgs e)
         {
@@ -279,6 +295,17 @@ namespace WpfApp2
         private void Button_Click_1(object sender, RoutedEventArgs e)
         {
             WindowState = WindowState.Minimized;
+
+        }
+
+        private void save_Click(object sender, RoutedEventArgs e)
+        {
+
+            for (int i=0; i<files.Length; i++)
+            {
+                File.Copy(files[i], filesNewNames[i] );
+            }
+
 
         }
     }

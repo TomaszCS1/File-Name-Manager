@@ -50,13 +50,6 @@ namespace WpfApp2
                 directPath = fbd.SelectedPath;
             
             }
-
-            //OpenFileDialog openFileDialogDir = new OpenFileDialog();                                                 <==  read folder path from file  
-            //if (openFileDialogDir.ShowDialog() == System.Windows.Forms.DialogResult.OK)
-            //{
-            //    filePath = openFileDialogDir.FileName;
-            //    directPath = System.IO.Path.GetDirectoryName(filePath);
-
                 files = Directory.GetFiles(directPath);
 
 
@@ -204,7 +197,6 @@ namespace WpfApp2
             else if (tbAltText1.Text.Length != 0)                                                //ALTER TEXT 1
             {
                 lbFilesNewNames.Items.Clear();
-                int anzBuchstaben = tbAltText1.Text.Length;
 
                 string altText1 = tbAltText1.Text;
                 string neuText1 = tbNeuText1.Text;

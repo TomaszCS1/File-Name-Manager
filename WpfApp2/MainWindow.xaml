@@ -106,17 +106,16 @@
 
 
 
-            <Canvas x:Name="dNameKurzen" Background="White"  HorizontalAlignment="Left" Height="319" Margin="20,16,0,0" VerticalAlignment="Top" Width="358" IsHitTestVisible="False" Grid.Row="1">
+            <Canvas x:Name="dNameKurzen" Background="White"  HorizontalAlignment="Left" Height="319" Margin="20,16,0,0" VerticalAlignment="Top" Width="358" Grid.Row="1">
                 <Label Content=" Deteinamen kurzen" Canvas.Left="24" Canvas.Top="30" FontWeight="Bold" FontSize="16" FontFamily="Verdana"></Label>
                 <Label Content="Anzahl Buchstaben zum entfernen:" Height="33" Canvas.Left="28" Canvas.Top="64" Width="424" ForceCursor="True" RenderTransformOrigin="0.349,0.289" FontSize="16" FontFamily="Verdana"/>
-                <TextBox x:Name="tbAnzBuchst" Height="29"  TextWrapping="Wrap" Width="33" TextChanged="TextBox_TextChanged_1" Canvas.Left="53" Canvas.Top="109" BorderBrush="{x:Null}" Background="#FFEBEBEB" />
+                <TextBox x:Name="tbAnzBuchst" Height="28" Width="33" TextChanged="TextBox_TextChanged_1" Canvas.Left="53" Canvas.Top="109" BorderBrush="{x:Null}" Background="#FFEBEBEB" SelectionOpacity="1" />
                 <Label Content="Dateityp"  Canvas.Left="38" Canvas.Top="204" Height="54" Width="77" FontSize="16" FontFamily="Verdana"/>
                 <Label Content="Dateiname" Canvas.Left="38" Canvas.Top="164" FontSize="16" FontFamily="Verdana"/>
                 <RadioButton x:Name="rbAmAnfang"   GroupName="Group1" Content="Am Anfang" Height="30"  Width="100" IsChecked="True" Checked="RadioButton_Checked_1" Canvas.Left="103" Canvas.Top="113" FontSize="16"/>
                 <RadioButton x:Name="rbAmEnde"    GroupName="Group1" Content="Am Ende" Height="29" Width="100" Checked="RadioButton_Checked" Canvas.Left="230" Canvas.Top="113" FontSize="16" />
                 <TextBox Height="32" TextWrapping="Wrap" Width="60" Canvas.Left="140" Canvas.Top="204" RenderTransformOrigin="0.446,0.434" FontSize="16" Background="#FFEBEBEB" BorderBrush="{x:Null}"/>
                 <TextBox Height="32" TextWrapping="Wrap" Width="139" Canvas.Left="140" Canvas.Top="161" FontSize="16" Background="#FFEBEBEB" BorderBrush="{x:Null}"/>
-
             </Canvas>
 
             <Canvas x:Name="textAendern" Margin="20,353,942,10" Cursor="Arrow" Background="White" Grid.Row="1" >

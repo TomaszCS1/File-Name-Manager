@@ -10,6 +10,7 @@
         WindowStartupLocation="CenterScreen"
         MouseDown="Window_MouseDown"
         Background="Transparent"
+        AllowsTransparency="True"
         Height="863" 
         Width="1350">
     <Window.Resources>
@@ -70,21 +71,16 @@
 
             <Button x:Name="btnMinimieren"    Style="{DynamicResource RoundButtonMenu}" Height="30" Width="30"  Background="#FF9792E3" Content="-" Foreground="White" VerticalAlignment="Center" HorizontalAlignment="Left" FontFamily="Verdana" FontSize="16" BorderBrush="{x:Null}" Click="Button_Click_1" Margin="1240,0,0,0"/>
             <Button x:Name="btnExit" Style="{DynamicResource RoundButtonMenu}" Height="30" Width="30"  Background="#FFEF6F6C" Content="X" Foreground="White" VerticalAlignment="Center" HorizontalAlignment="Left" FontFamily="Verdana" FontSize="16" BorderBrush="{x:Null}" Click="Button_Click" Margin="1280,0,0,0"/>
-            <Button Style="{DynamicResource RoundButton}" Content="Speichern"  Background="#2C65B5" FontSize="20" Foreground="White" FontFamily="Verdana" Grid.Row="2" Margin="1035,10,40,65" />
-            <Button Style="{DynamicResource RoundButton}" Content="Vorschau"  VerticalAlignment="Top" Click="aenderVorschau" Background="#2C65B5" FontFamily="Verdana" FontSize="20" Foreground="White" Grid.Row="2" Margin="259,10,822,0" Height="55"/>
-            <Button x:Name="directoryOpen" Content="Directory open" Margin="40,10,1045,0"  Click="btnOpenDiretory" Background="#2C65B5" FontSize="20" Foreground="White" FontFamily="Verdana" 
-                    <StackPanel>
-                <Image Source="openfile.jpg"/>
-                </StackPanel> />
-            <Button x:Name="menuDateien1" Content="Dateien 1" Grid.Row="0" Margin="275,10,725,0"  Background="#2C65B5" FontFamily="Verdana" FontSize="20" Foreground="White"/>
-            <Button x:Name="menuDateien2" Content="Dateien 2" Grid.Row="0" Margin="595,10,415,0"  Background="#2C65B5" FontFamily="Verdana" FontSize="20" Foreground="White"/>
-            <Button x:Name="menuDateien3" Content="Dateien 3" Grid.Row="0" Margin="905,10,100,0"  Background="#2C65B5" FontFamily="Verdana" FontSize="20" Foreground="White"/>
+            <Button Style="{DynamicResource RoundButton}" Content="Speichern"  Background="#2C65B5" FontSize="20" Foreground="White" FontFamily="Verdana" Grid.Row="2" Margin="1067,5,8,70" />
+            <Button Style="{DynamicResource RoundButton}" Content="Vorschau"  VerticalAlignment="Top" Click="aenderVorschau" Background="#2C65B5" FontFamily="Verdana" FontSize="20" Foreground="White" Grid.Row="2" Margin="139,5,942,0" Height="55"/>
+            <Button x:Name="directoryOpen" Content="Directory open" Margin="20,10,1065,0"  Click="btnOpenDiretory" Background="#92AAD0" FontSize="20" Foreground="White" FontFamily="Verdana" />
+            <Button x:Name="menuDateien1" Content="Dateien umbenennen" Grid.Row="0" Margin="305,10,715,0"  Background="#2C65B5" FontFamily="Verdana" FontSize="20" Foreground="White"/>
+            <Button x:Name="menuDateien2" Content="Dateien verschieben" Grid.Row="0" Margin="605,10,415,0"  Background="#2C65B5" FontFamily="Verdana" FontSize="20" Foreground="White"/>
+            <Button x:Name="menuDateien3" Content="Dateien erstellen" Grid.Row="0" Margin="905,10,115,0"  Background="#2C65B5" FontFamily="Verdana" FontSize="20" Foreground="White"/>
 
+            <Canvas HorizontalAlignment="Left" Height="674" Margin="400,16,0,0" VerticalAlignment="Top" Width="912" Background="White" Grid.Row="1">
 
-
-            <Canvas HorizontalAlignment="Left" Height="674" Margin="516,16,0,0" VerticalAlignment="Top" Width="796" Background="White" Grid.Row="1">
-
-                <ListBox x:Name="lbFilesInDirectory" Height="620"  Width="375" Grid.RowSpan="2" Canvas.Left="10" Canvas.Top="44" >
+                <ListBox x:Name="lbFilesInDirectory" Height="620"  Width="441" Grid.RowSpan="2" Canvas.Left="10" Canvas.Top="44" >
                     <ListBox.Background>
                         <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
                             <GradientStop Color="White"/>
@@ -94,7 +90,7 @@
                     </ListBox.Background>
                 </ListBox>
 
-                <ListBox Height="620"  Name="lbFilesNewNames" Width="375" SelectionChanged="ListBox_SelectionChanged_1" IsManipulationEnabled="True" Grid.RowSpan="2" Canvas.Top="44" Canvas.Left="411" >
+                <ListBox Height="620"  Name="lbFilesNewNames" Width="446" SelectionChanged="ListBox_SelectionChanged_1" IsManipulationEnabled="True" Grid.RowSpan="2" Canvas.Top="44" Canvas.Left="456" >
                     <ListBox.Background>
                         <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
                             <GradientStop Color="#FFD9E0E8"/>
@@ -104,36 +100,36 @@
                     </ListBox.Background>
                 </ListBox>
                 <Label Content="Vorschau Änderungen" Width="201" FontWeight="Normal" Height="31" FontFamily="Montserrat" FontSize="16" Canvas.Top="9" Canvas.Left="10" RenderTransformOrigin="0.542,0.839"/>
-                <Label Content="Vorschau alte Benennungen" Width="260" FontWeight="Normal" Height="30" FontFamily="Montserrat" FontSize="16" Canvas.Left="411" Canvas.Top="9"/>
+                <Label Content="Vorschau alte Benennungen" Width="260" FontWeight="Normal" Height="30" FontFamily="Montserrat" FontSize="16" Canvas.Left="456" Canvas.Top="5"/>
 
             </Canvas>
 
 
 
-            <Canvas x:Name="dNameKurzen" Background="White"  HorizontalAlignment="Left" Height="319" Margin="20,16,0,0" VerticalAlignment="Top" Width="480" IsHitTestVisible="False" Grid.Row="1">
-                <Label Content=" Deteinamen kurzen" Canvas.Left="35" Canvas.Top="30" FontWeight="Bold" FontSize="16" FontFamily="Verdana"></Label>
-                <Label Content="Anzahl Buchstaben zum entfernen" Height="33" Canvas.Left="45" Canvas.Top="75" Width="425" ForceCursor="True" RenderTransformOrigin="0.349,0.289" FontSize="16" FontFamily="Verdana" HorizontalAlignment="Left" VerticalAlignment="Center"/>
-                <TextBox x:Name="tbAnzBuchst" Height="29"  TextWrapping="Wrap" Width="33" TextChanged="TextBox_TextChanged_1" Canvas.Left="83" Canvas.Top="113" HorizontalAlignment="Left" VerticalAlignment="Top" BorderBrush="{x:Null}" Background="#FFEBEBEB" />
-                <Label Content="Dateityp"  Canvas.Left="48" Canvas.Top="160" Height="55" Width="77" HorizontalAlignment="Left" VerticalAlignment="Center" FontSize="16" FontFamily="Verdana"/>
-                <Label Content="Dateiname" Canvas.Left="213" Canvas.Top="159" FontSize="16" FontFamily="Verdana"/>
-                <RadioButton x:Name="rbAmAnfang"   GroupName="Group1" Content="Am Anfang" Height="30"  Width="100" IsChecked="True" Checked="RadioButton_Checked_1" Canvas.Left="148" Canvas.Top="117" FontSize="16" HorizontalAlignment="Center" VerticalAlignment="Top"/>
-                <RadioButton x:Name="rbAmEnde"    GroupName="Group1" Content="Am Ende" Height="29" Width="100" Checked="RadioButton_Checked" Canvas.Left="285" Canvas.Top="117" FontSize="16" HorizontalAlignment="Center" VerticalAlignment="Top" />
-                <TextBox Height="32" TextWrapping="Wrap" Width="60" Canvas.Left="130" Canvas.Top="162" RenderTransformOrigin="0.446,0.434" FontSize="16" Background="#FFEBEBEB" BorderBrush="{x:Null}"/>
-                <TextBox Height="32" TextWrapping="Wrap" Width="151" Canvas.Left="315" Canvas.Top="162" HorizontalAlignment="Center" VerticalAlignment="Top" FontSize="16" Background="#FFEBEBEB" BorderBrush="{x:Null}"/>
+            <Canvas x:Name="dNameKurzen" Background="White"  HorizontalAlignment="Left" Height="319" Margin="20,16,0,0" VerticalAlignment="Top" Width="358" IsHitTestVisible="False" Grid.Row="1">
+                <Label Content=" Deteinamen kurzen" Canvas.Left="24" Canvas.Top="30" FontWeight="Bold" FontSize="16" FontFamily="Verdana"></Label>
+                <Label Content="Anzahl Buchstaben zum entfernen:" Height="33" Canvas.Left="28" Canvas.Top="64" Width="424" ForceCursor="True" RenderTransformOrigin="0.349,0.289" FontSize="16" FontFamily="Verdana"/>
+                <TextBox x:Name="tbAnzBuchst" Height="29"  TextWrapping="Wrap" Width="33" TextChanged="TextBox_TextChanged_1" Canvas.Left="53" Canvas.Top="109" BorderBrush="{x:Null}" Background="#FFEBEBEB" />
+                <Label Content="Dateityp"  Canvas.Left="38" Canvas.Top="204" Height="54" Width="77" FontSize="16" FontFamily="Verdana"/>
+                <Label Content="Dateiname" Canvas.Left="38" Canvas.Top="164" FontSize="16" FontFamily="Verdana"/>
+                <RadioButton x:Name="rbAmAnfang"   GroupName="Group1" Content="Am Anfang" Height="30"  Width="100" IsChecked="True" Checked="RadioButton_Checked_1" Canvas.Left="103" Canvas.Top="113" FontSize="16"/>
+                <RadioButton x:Name="rbAmEnde"    GroupName="Group1" Content="Am Ende" Height="29" Width="100" Checked="RadioButton_Checked" Canvas.Left="230" Canvas.Top="113" FontSize="16" />
+                <TextBox Height="32" TextWrapping="Wrap" Width="60" Canvas.Left="140" Canvas.Top="204" RenderTransformOrigin="0.446,0.434" FontSize="16" Background="#FFEBEBEB" BorderBrush="{x:Null}"/>
+                <TextBox Height="32" TextWrapping="Wrap" Width="139" Canvas.Left="140" Canvas.Top="161" FontSize="16" Background="#FFEBEBEB" BorderBrush="{x:Null}"/>
 
             </Canvas>
 
-            <Canvas x:Name="textAendern" Margin="20,353,820,10" Cursor="Arrow" Background="White" Grid.Row="1" >
+            <Canvas x:Name="textAendern" Margin="20,353,942,10" Cursor="Arrow" Background="White" Grid.Row="1" >
 
                 <Label Content="Textteile ändern" Canvas.Left="35" Canvas.Top="30" FontWeight="Bold" FontSize="16" FontFamily="Verdana"></Label>
-                <Label Content="alter Text 1" Canvas.Left="46" Canvas.Top="60" FontSize="16" FontFamily="Verdana"></Label>
-                <Label Content="neuer Text 1" Canvas.Left="231" Canvas.Top="60" FontSize="16" FontFamily="Verdana"></Label>
-                <TextBox x:Name="tbAltText1"  Height="37" Width="150" Canvas.Left="46" Canvas.Top="91" TextChanged="tbAltText1_TextChanged" HorizontalAlignment="Center" VerticalAlignment="Top" BorderBrush="{x:Null}" Background="#FFEBEBEB"></TextBox>
-                <TextBox x:Name="tbNeuText1"  Height="37" Width="150" Canvas.Left="231" Canvas.Top="91" HorizontalAlignment="Center" VerticalAlignment="Top" BorderBrush="{x:Null}" Background="#FFEBEBEB"  ></TextBox>
-                <Label Content="alter Text 2" Canvas.Left="46" Canvas.Top="133" FontSize="16" FontFamily="Verdana"/>
-                <Label Content="neuer Text 2" Canvas.Left="231" Canvas.Top="133" FontSize="16" FontFamily="Verdana"/>
-                <TextBox x:Name="tbAltText2" Height="38" Width="150" Canvas.Left="46" Canvas.Top="164" HorizontalAlignment="Center" VerticalAlignment="Top" BorderBrush="{x:Null}" Background="#FFEBEBEB"/>
-                <TextBox x:Name="tbNeuText2" Height="38" Width="150" Canvas.Left="231" Canvas.Top="164" HorizontalAlignment="Center" VerticalAlignment="Top" Background="#FFEBEBEB" BorderBrush="{x:Null}"  />
+                <Label Content="alter Text 1" Canvas.Left="35" Canvas.Top="79" FontSize="16" FontFamily="Verdana"></Label>
+                <Label Content="neuer Text 1" Canvas.Left="180" Canvas.Top="79" FontSize="16" FontFamily="Verdana"></Label>
+                <TextBox x:Name="tbAltText1"  Height="37" Width="120" Canvas.Left="35" Canvas.Top="110" TextChanged="tbAltText1_TextChanged" BorderBrush="{x:Null}" Background="#FFEBEBEB"/>
+                <TextBox x:Name="tbNeuText1"  Height="37" Width="120" Canvas.Left="180" Canvas.Top="110" BorderBrush="{x:Null}" Background="#FFEBEBEB"  />
+                <Label Content="alter Text 2" Canvas.Left="35" Canvas.Top="176" FontSize="16" FontFamily="Verdana"/>
+                <Label Content="neuer Text 2" Canvas.Left="180" Canvas.Top="176" FontSize="16" FontFamily="Verdana"/>
+                <TextBox x:Name="tbAltText2" Height="38" Width="120" Canvas.Left="35" Canvas.Top="207" BorderBrush="{x:Null}" Background="#FFEBEBEB"/>
+                <TextBox x:Name="tbNeuText2" Height="38" Width="120" Canvas.Left="180" Canvas.Top="207" Background="#FFEBEBEB" BorderBrush="{x:Null}"  />
 
             </Canvas>
 

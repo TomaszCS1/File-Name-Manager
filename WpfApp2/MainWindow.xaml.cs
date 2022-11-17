@@ -63,16 +63,12 @@ namespace WpfApp2
                     }
                 }
          }
-        
 
         private void Window_MouseDown(object sender, MouseButtonEventArgs e)
         {
             if (e.LeftButton == MouseButtonState.Pressed)
                 DragMove();
         }
-
-
-      
 
         private void aenderVorschau(object sender, RoutedEventArgs e)                            //TODO: sicherung falls neue benennung ist nicht eindeutig (es kann nicht 2 dateien mit gleichen Namen geben)
         {
@@ -280,11 +276,7 @@ namespace WpfApp2
                     lbFilesInDirectory.Items.Add(i + 1 + ". " + System.IO.Path.GetFileName(files[i]));
                 }
             }
-
-            
         }
-
-
 
         private void RadioButton_Checked(object sender, RoutedEventArgs e)
         {

@@ -27,7 +27,7 @@ namespace WpfApp2
         string[] files;
         public string anzBuchstabenStr;
         public int anzBuchstaben;
-        ArrayList filesNewNames = new ArrayList();
+        List<string> filesNewNames = new List<string>();
 
         public MainWindow()
         {
@@ -72,32 +72,9 @@ namespace WpfApp2
         }
 
 
-        private void ListBox_SelectionChanged(object sender, SelectionChangedEventArgs e)
-        {
-          
-        }
+      
 
-        private void ListBox_SelectionChanged_1(object sender, SelectionChangedEventArgs e)
-        {
-
-        }
-
-        private void TextBox_TextChanged(object sender, TextChangedEventArgs e)
-        {
-           
-        }
-
-        private void ListView_SelectionChanged(object sender, SelectionChangedEventArgs e)
-        {
-           
-        }
-
-        private void TextBox_TextChanged_1(object sender, TextChangedEventArgs e)
-        {
-          
-        }
-
-        private void aenderVorschau(object sender, RoutedEventArgs e)
+        private void aenderVorschau(object sender, RoutedEventArgs e)                            //TODO: sicherung falls neue benennung ist nicht eindeutig (es kann nicht 2 dateien mit gleichen Namen geben)
         {
 
 
@@ -122,7 +99,7 @@ namespace WpfApp2
                     {
                         string newFilename = fileName;
                         lbFilesNewNames.Items.Add(i + 1 + ". " + newFilename);
-filesNewNames.Add(newFilename);
+                        filesNewNames.Add(newFilename);
                     }
                 }
 
@@ -142,13 +119,13 @@ filesNewNames.Add(newFilename);
                         int endeString = laengeBenenn - anzBuchstaben;
                         string newFilename = fileName.Remove(endeString, anzBuchstaben);
                         lbFilesNewNames.Items.Add(i + 1 + ". " + newFilename);
-filesNewNames.Add(newFilename);
+                        filesNewNames.Add(newFilename);
                     }
                     else
                     {
                         string newFilename = fileName;
                         lbFilesNewNames.Items.Add(i + 1 + ". " + newFilename); 
-filesNewNames.Add(newFilename);
+                        filesNewNames.Add(newFilename);
                     }
 
                 }
@@ -182,7 +159,6 @@ filesNewNames.Add(newFilename);
                         {
                             newFilename2 = newFilename1.Remove(laengeBenenn3, fileName.Length - laengeBenenn3) + neuText2 + newFilename1.Substring(leangeBenenn4);
                             newFilename1 = newFilename2;
-                            //lbFilesNewNames.Items.Add(i + 1 + ". " + newFilename2);
                         }
 
                         lbFilesNewNames.Items.Add(i + 1 + ". " + newFilename1);
@@ -201,14 +177,14 @@ filesNewNames.Add(newFilename);
                         {
                             string newFilename = fileName;
                             lbFilesNewNames.Items.Add(i + 1 + ". " + newFilename);
-filesNewNames.Add(newFilename);
+                            filesNewNames.Add(newFilename);
                     }
                             }
             }
             else if (tbAltText1.Text.Length != 0)                                                //ALTER TEXT 1
             {
                 lbFilesNewNames.Items.Clear();
-                int anzBuchstaben = tbAltText1.Text.Length;
+               
 
                 string altText1 = tbAltText1.Text;
                 string neuText1 = tbNeuText1.Text;
@@ -222,13 +198,13 @@ filesNewNames.Add(newFilename);
                     {
                         string newFilename = fileName.Remove(laengeBenenn1, fileName.Length - laengeBenenn1) + neuText1 + fileName.Substring(leangeBenenn2);
                         lbFilesNewNames.Items.Add(i + 1 + ". " + newFilename);
-filesNewNames.Add(newFilename);
+                        filesNewNames.Add(newFilename);
                     }
                     else
                     {
                         string newFilename = fileName;
                         lbFilesNewNames.Items.Add(i + 1 + ". " + newFilename);
-filesNewNames.Add(newFilename);
+                        filesNewNames.Add(newFilename);
                     }
                 }
 
@@ -236,8 +212,7 @@ filesNewNames.Add(newFilename);
             else if (tbAltText2.Text.Length != 0)                                                //ALTER TEXT 2
             {
                 lbFilesNewNames.Items.Clear();
-                int anzBuchstaben = tbAltText2.Text.Length;
-
+                
                 string altText2 = tbAltText2.Text;
                 string neuText2 = tbNeuText2.Text;
                 for (int i = 0; i < files.Length; i++)
@@ -250,13 +225,13 @@ filesNewNames.Add(newFilename);
                     {
                         string newFilename = fileName.Remove(laengeBenenn1, fileName.Length - laengeBenenn1) + neuText2 + fileName.Substring(leangeBenenn2);
                         lbFilesNewNames.Items.Add(i + 1 + ". " + newFilename);
-filesNewNames.Add(newFilename);
+                        filesNewNames.Add(newFilename);
                     }
                     else
                     {
                         string newFilename = fileName;
                         lbFilesNewNames.Items.Add(i + 1 + ". " + newFilename);
-filesNewNames.Add(newFilename);
+                        filesNewNames.Add(newFilename);
                     }
                 }
             }
@@ -268,7 +243,46 @@ filesNewNames.Add(newFilename);
             }
         }
 
+        private void save_Click(object sender, RoutedEventArgs e)
+        {
 
+            for (int i = 0; i < files.Length; i++)
+
+            {
+                string neuPfad = System.IO.Path.GetDirectoryName(files[i]) + "\\" + filesNewNames[i];
+                if (files[i] != neuPfad)                                                                                //wenn Änderungen: alte Bennen nicht gleich neue Dateiname
+                {
+                    
+                    File.Copy(files[i], neuPfad);                                                                       //neue Datei erstellt
+                    File.Delete(files[i]);                                                                              //alte Datei gelöscht
+                    
+                }
+                
+
+            }
+            filesNewNames.Clear();
+            lbFilesNewNames.Items.Clear();
+            tbAltText1.Clear();
+            tbAltText2.Clear();
+            tbNeuText1.Clear();
+            tbNeuText2.Clear();
+            tbAnzBuchst.Clear();
+
+
+            if (directPath != null)                                             //listbox alt wird aktualisiert mit neuen Benennungen
+            {
+                files = Directory.GetFiles(directPath);
+
+
+                lbFilesInDirectory.Items.Clear();
+                for (int i = 0; i < files.Length; i++)
+                {
+                    lbFilesInDirectory.Items.Add(i + 1 + ". " + System.IO.Path.GetFileName(files[i]));
+                }
+            }
+
+            
+        }
 
 
 
@@ -283,7 +297,7 @@ filesNewNames.Add(newFilename);
         }
 
         private void tbAltText1_TextChanged(object sender, TextChangedEventArgs e)
-        {
+            {
 
         }
 
@@ -297,15 +311,28 @@ filesNewNames.Add(newFilename);
             WindowState = WindowState.Minimized;
 
         }
-
-        private void save_Click(object sender, RoutedEventArgs e)
+        private void ListBox_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
 
-            for (int i=0; i<files.Length; i++)
-            {
-                File.Copy(files[i], filesNewNames[i] );
-            }
+        }
 
+        private void ListBox_SelectionChanged_1(object sender, SelectionChangedEventArgs e)
+        {
+
+        }
+
+        private void TextBox_TextChanged(object sender, TextChangedEventArgs e)
+        {
+
+        }
+
+        private void ListView_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        {
+
+        }
+
+        private void TextBox_TextChanged_1(object sender, TextChangedEventArgs e)
+        {
 
         }
     }
